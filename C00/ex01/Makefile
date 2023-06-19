@@ -1,6 +1,6 @@
 ###################################### BEG_1 ####
 
-NAME        = megaphone
+NAME        = contact
 
 #------------------------------------------------#
 #   INGREDIENTS                                  #
@@ -11,8 +11,8 @@ NAME        = megaphone
 # CC        compiler
 # CFLAGS    compiler flags
 
-SRCS        = megaphone.cpp
-OBJS        = megaphone.o
+SRCS        = Contact.cpp
+OBJS        = Contact.o
 
 CC          = g++
 CFLAGS      = -Wall -Wextra -Werror
