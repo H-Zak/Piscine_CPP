@@ -11,8 +11,8 @@ NAME        = contact
 # CC        compiler
 # CFLAGS    compiler flags
 
-SRCS        = Contact.cpp
-OBJS        = Contact.o
+SRCS        = Contact.class.cpp main.cpp Phonebook.class.cpp
+OBJS        = Contact.class.o main.o Phonebook.class.o
 
 CC          = g++
 CFLAGS      = -Wall -Wextra -Werror

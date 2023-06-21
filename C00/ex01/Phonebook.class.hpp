@@ -6,7 +6,7 @@
 /*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 17:19:14 by zhamdouc          #+#    #+#             */
-/*   Updated: 2023/06/20 19:04:36 by zhamdouc         ###   ########.fr       */
+/*   Updated: 2023/06/21 17:27:04 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,12 @@
 class Phonebook {
 private :
 	static int const Nb_contact = 8;
-	Contact* repertoire[Nb_contact];
+	Contact repertory[Nb_contact];
 	int count_contact = 0;
 public:
 	Phonebook();
-
+	void addcontact(const std::string& first_name, const std::string& last_name, const std::string nickname, const std::string phonenumber, const std::string darkestsecret);
+	void searchcontact(int index);
+	~Phonebook();
 };
-
 #endif

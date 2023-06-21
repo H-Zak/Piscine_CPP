@@ -6,7 +6,7 @@
 /*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 16:54:51 by zhamdouc          #+#    #+#             */
-/*   Updated: 2023/06/20 19:04:57 by zhamdouc         ###   ########.fr       */
+/*   Updated: 2023/06/21 18:15:39 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ private:
     std::string    darkest_secret;
     
 public:
-    Contact(const std::string& firstname, const std::string& lastname, const std::string& nickname, const std::string& phonenumber, const std::string& darkestsecret):first_name(firstname), last_name(lastname),nick_name(nickname),phone_number(phonenumber),darkest_secret(darkestsecret){};
+    Contact();
+    void mycontact(const std::string& firstname, const std::string& lastname, const std::string& nickname, const std::string& phonenumber, const std::string& darkestsecret);
     std::string getfirst_name() const;
     std::string getnick_name() const;
     std::string getphone_number() const;
