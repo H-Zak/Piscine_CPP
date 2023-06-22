@@ -6,11 +6,12 @@
 /*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 17:19:00 by zhamdouc          #+#    #+#             */
-/*   Updated: 2023/06/21 18:24:16 by zhamdouc         ###   ########.fr       */
+/*   Updated: 2023/06/22 14:29:16 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <iomanip>
 #include <string>
 #include "Contact.class.hpp"
 #include "Phonebook.class.hpp"
@@ -49,21 +50,7 @@ int main ()
 		}
 		else if (command == "SEARCH" || command == "search")
 		{
-			std::string value;//une valeur par defaut ou si la personne n'envoie rien quoi faire ou un nombre trop grand ou trop petit ?
-			int index;
-			//utiliser une string puis verifier ca taille, pour n'ir qu'un chiffre a convertir ensuite en int 
-			std::cout << "enter the index :\n";
-			if (!std::getline(std::cin, value))
-				break;
-			if (value.size() == 1)
-			{
-				index =  std::stoi(value);
-				if (index >= 0 && index < 8)
-					phonebook.searchcontact(index);
-				else
-					std::cout << "Bad number\n";
-			}
-			
+			phonebook.searchcontact();
 		}
 		else if (command == "EXIT" || command == "exit")
 		{

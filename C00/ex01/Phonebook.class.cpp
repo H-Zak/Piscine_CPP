@@ -6,11 +6,12 @@
 /*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 18:25:31 by zhamdouc          #+#    #+#             */
-/*   Updated: 2023/06/21 18:28:02 by zhamdouc         ###   ########.fr       */
+/*   Updated: 2023/06/22 14:36:53 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <iomanip>
 #include "Contact.class.hpp"
 #include "Phonebook.class.hpp"
 
@@ -31,36 +32,90 @@ Il est important de noter que les références constantes en C++ offrent une sé
 */
 Phonebook::Phonebook():count_contact(0)
 {
-    // int i = 0;
-    // while (i < Nb_contact)
-    // {
-    //     repertory[i] = Contact();
-    //     i++;
-    // }
+	// int i = 0;
+	// while (i < Nb_contact)
+	// {
+	//     repertory[i] = Contact();
+	//     i++;
+	// }
 }
 
 void Phonebook::addcontact(const std::string& firstname, const std::string& lastname, const std::string nickname, const std::string phonenumber, const std::string darkestsecret)
 {
-    if (count_contact == 7)
-        count_contact = 0;
-    repertory[count_contact].mycontact(firstname, lastname, nickname, phonenumber, darkestsecret);
-    count_contact++;
+	if (count_contact == 7)
+		count_contact = 0;
+	repertory[count_contact].mycontact(firstname, lastname, nickname, phonenumber, darkestsecret);
+	count_contact++;
 }
 
-void Phonebook::searchcontact(int index)
+void Phonebook::searchcontact()
 {
-    if (index <= count_contact)
-    {
-        std::cout << repertory[index].getdarkest_secret();
-        std::cout << repertory[index].getfirst_name();
-        std::cout << repertory[index].getlast_name();
-        std::cout << repertory[index].getnick_name();
-        std::cout << repertory[index].getphone_number() << std::endl;
-    }
-    else
-        std::cout << "Index incorrect\n";
-    //inde doit etre inferieur ou egale a count_contact
-    //imprimer repertory[index]
+	if (count_contact == 0)
+		std::cout << "you need to have contact to check them" << std::endl;
+	/*
+	quand le user tappera Search, j'afficherai la liste des contacts qui existe
+	puis je lui demanderai de choisir le contact qu'il souhaite 
+	et je devrai afficher ligne par ligne les informations
+	*/
+	//afficher le titre des colonne (index, first name, last name, nick name)
+	std::cout << std::setw(10) << std::right << "index" << "|"
+			<< std::setw(10) << std::right << "first name" << "|"
+			<< std::setw(10) << std::right << "last name" << "|"
+			<< std::setw(10) << std::right << "nick name" << "|" << std::endl;
+	//faire une boucle car je dois afficher en premier lieu tout les contacts
+	//faire des copies aussi des strings pour les manipulers
+	int i = 0;
+	std::string copy_firstname, copy_lastname, copy_nickname;
+	while (i < count_contact)
+	{
+		std::cout << std::setw(10) << i << "|";
+		
+		copy_firstname = repertory[i].getfirst_name();
+		if (copy_firstname.length() > 10)
+			copy_firstname = copy_firstname.substr(0, 10) + '.';
+		std::cout << std::setw(10) << std::right  << copy_firstname << "|";
+		
+		copy_lastname = repertory[i].getlast_name();
+		if (copy_lastname.length() > 10)
+			copy_lastname = copy_lastname.substr(0, 10) + '.';
+		std::cout << std::setw(10) << std::right  << copy_lastname << "|";
+		
+		copy_nickname = repertory[i].getnick_name();
+		if (copy_nickname.length() > 10)
+			copy_nickname = copy_nickname.substr(0, 10) + '.';
+		std::cout << std::setw(10) << std::right  << copy_nickname << "|" << std::endl;
+		i++;
+	}
+
+	/*GERER a partir d'ici la demande d'index et les erreurs qui vont avec*/
+	std::string value;//une valeur par defaut ou si la personne n'envoie rien quoi faire ou un nombre trop grand ou trop petit ?
+	int index;
+	//utiliser une string puis verifier ca taille, pour n'ir qu'un chiffre a convertir ensuite en int 
+	while (1)
+	{
+		std::cout << "enter the index :\n";
+		if (!std::getline(std::cin, value))
+			return;
+		if (value.size() == 1)
+		{
+			index =  std::stoi(value);
+			if (index >= 0 && index < count_contact)
+			{
+				std::cout << repertory[index].getdarkest_secret();
+				std::cout << repertory[index].getfirst_name();
+				std::cout << repertory[index].getlast_name();
+				std::cout << repertory[index].getnick_name();
+				std::cout << repertory[index].getphone_number() << std::endl;
+			}
+			else
+				std::cout << "Bad number, no contact for this index, or not a correct number\n";
+		}
+	}
+
+			
+	//demander l'index choisis
+	//inde doit etre inferieur ou egale a count_contact
+	//imprimer repertory[index]
 }
 
 Phonebook::~Phonebook()

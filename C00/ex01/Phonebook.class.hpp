@@ -6,7 +6,7 @@
 /*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 17:19:14 by zhamdouc          #+#    #+#             */
-/*   Updated: 2023/06/21 17:27:04 by zhamdouc         ###   ########.fr       */
+/*   Updated: 2023/06/22 14:27:10 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ private :
 public:
 	Phonebook();
 	void addcontact(const std::string& first_name, const std::string& last_name, const std::string nickname, const std::string phonenumber, const std::string darkestsecret);
-	void searchcontact(int index);
+	void searchcontact();
 	~Phonebook();
 };
 #endif
