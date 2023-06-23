@@ -1,0 +1,92 @@
+La syntaxe NomDeClasse:: est utilisée dans divers contextes lors de la programmation en C++ et pas seulement lors de l'initialisation des classes et des fonctions.
+
+Voici quelques cas où la syntaxe NomDeClasse:: est couramment utilisée :
+
+Déclaration et définition des membres de classe :
+
+cpp
+Copy code
+class Zombie {
+private:
+    static int count;  // Déclaration d'une variable statique de classe
+
+public:
+    static void updateCount();  // Déclaration d'une fonction statique de classe
+};
+
+int Zombie::count = 0;  // Définition de la variable statique de classe en dehors de la classe
+
+void Zombie::updateCount() {
+    // Implémentation de la fonction statique de classe
+    // Utilisation de Zombie::count pour accéder à la variable statique de classe
+    // ...
+}
+Utilisation des membres de classe à l'intérieur de la classe elle-même :
+
+cpp
+Copy code
+class Zombie {
+private:
+    static const int MAX_HEALTH = 100;  // Déclaration d'une constante statique de classe
+
+public:
+    void attack() {
+        // Utilisation de Zombie::MAX_HEALTH pour accéder à la constante statique de classe
+        if (health > Zombie::MAX_HEALTH) {
+            // ...
+        }
+    }
+};
+Utilisation des membres de classe en dehors de la classe :
+
+cpp
+Copy code
+// Utilisation de Zombie::updateCount() pour appeler la fonction statique de classe
+Zombie::updateCount();
+
+// Utilisation de Zombie::count pour accéder à la variable statique de classe
+int currentCount = Zombie::count;
+La syntaxe NomDeClasse:: permet de faire référence aux membres de classe dans divers contextes, que ce soit à l'intérieur ou à l'extérieur de la classe. Cela permet de spécifier de manière explicite que nous faisons référence à un membre spécifique de la classe, plutôt qu'à une variable ou à une fonction locale.
+
+Voici un exemple plus complet du cas 3, où la syntaxe `NomDeClasse::` est utilisée pour accéder aux membres de classe en dehors de la classe :
+
+```cpp
+#include <iostream>
+
+class Zombie {
+private:
+    static int count;
+
+public:
+    static void updateCount() {
+        Zombie::count++;
+    }
+
+    static void printCount() {
+        std::cout << "Nombre de zombies : " << Zombie::count << std::endl;
+    }
+};
+
+int Zombie::count = 0;
+
+int main() {
+    Zombie::printCount();  // Affiche : Nombre de zombies : 0
+
+    Zombie::updateCount();
+    Zombie::updateCount();
+    Zombie::updateCount();
+
+    Zombie::printCount();  // Affiche : Nombre de zombies : 3
+
+    return 0;
+}
+```
+
+Explication :
+
+- La classe `Zombie` contient une variable statique `count` et deux fonctions statiques : `updateCount()` pour incrémenter `count` et `printCount()` pour afficher la valeur de `count`.
+- En dehors de la classe `Zombie`, nous utilisons la syntaxe `Zombie::` pour accéder aux membres de classe. Par exemple, `Zombie::printCount()` appelle la fonction statique `printCount()` pour afficher le nombre de zombies.
+- Dans la fonction `main()`, nous utilisons `Zombie::updateCount()` trois fois pour incrémenter `count` de la classe `Zombie`.
+- Ensuite, nous utilisons à nouveau `Zombie::printCount()` pour afficher la nouvelle valeur de `count`.
+
+L'utilisation de `Zombie::` en dehors de la classe permet de faire référence aux membres de classe de manière explicite et claire, indiquant qu'il s'agit des membres appartenant à la classe `Zombie`. Cela facilite la distinction entre les membres de classe et les variables/fonctions locales lors de la programmation en C++.

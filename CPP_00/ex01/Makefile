@@ -14,7 +14,7 @@ NAME        = contact
 SRCS        = Contact.class.cpp main.cpp Phonebook.class.cpp
 OBJS        = Contact.class.o main.o Phonebook.class.o
 
-CC          = g++
+CC          = c++
 CFLAGS      = -Wall -Wextra -Werror
 
 #------------------------------------------------#
@@ -41,7 +41,7 @@ $(NAME): $(OBJS)
 	$(CC) $(OBJS) -o $(NAME)
 
 clean:
-	$(RM) $(OBJS)
+	$(RM) $(OBJS) $(NAME)
 
 fclean: clean
 	$(RM) $(NAME)

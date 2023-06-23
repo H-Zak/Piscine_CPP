@@ -6,7 +6,7 @@
 /*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 18:25:31 by zhamdouc          #+#    #+#             */
-/*   Updated: 2023/06/22 14:36:53 by zhamdouc         ###   ########.fr       */
+/*   Updated: 2023/06/23 14:02:57 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,10 @@ void Phonebook::addcontact(const std::string& firstname, const std::string& last
 void Phonebook::searchcontact()
 {
 	if (count_contact == 0)
+	{
 		std::cout << "you need to have contact to check them" << std::endl;
+		return ;
+	}
 	/*
 	quand le user tappera Search, j'afficherai la liste des contacts qui existe
 	puis je lui demanderai de choisir le contact qu'il souhaite 
@@ -61,7 +64,7 @@ void Phonebook::searchcontact()
 	std::cout << std::setw(10) << std::right << "index" << "|"
 			<< std::setw(10) << std::right << "first name" << "|"
 			<< std::setw(10) << std::right << "last name" << "|"
-			<< std::setw(10) << std::right << "nick name" << "|" << std::endl;
+			<< std::setw(10) << std::right << "nick name" << std::endl;
 	//faire une boucle car je dois afficher en premier lieu tout les contacts
 	//faire des copies aussi des strings pour les manipulers
 	int i = 0;
@@ -72,23 +75,25 @@ void Phonebook::searchcontact()
 		
 		copy_firstname = repertory[i].getfirst_name();
 		if (copy_firstname.length() > 10)
-			copy_firstname = copy_firstname.substr(0, 10) + '.';
+			copy_firstname = copy_firstname.substr(0, 9) + '.';
 		std::cout << std::setw(10) << std::right  << copy_firstname << "|";
 		
 		copy_lastname = repertory[i].getlast_name();
 		if (copy_lastname.length() > 10)
-			copy_lastname = copy_lastname.substr(0, 10) + '.';
+			copy_lastname = copy_lastname.substr(0, 9) + '.';
 		std::cout << std::setw(10) << std::right  << copy_lastname << "|";
 		
 		copy_nickname = repertory[i].getnick_name();
 		if (copy_nickname.length() > 10)
-			copy_nickname = copy_nickname.substr(0, 10) + '.';
-		std::cout << std::setw(10) << std::right  << copy_nickname << "|" << std::endl;
+			copy_nickname = copy_nickname.substr(0, 9) + '.';
+		std::cout << std::setw(10) << std::right  << copy_nickname << std::endl;
 		i++;
 	}
 
 	/*GERER a partir d'ici la demande d'index et les erreurs qui vont avec*/
-	std::string value;//une valeur par defaut ou si la personne n'envoie rien quoi faire ou un nombre trop grand ou trop petit ?
+	//une valeur par defaut ou si la personne n'envoie rien quoi faire ou un nombre trop grand ou trop petit ?
+	std::string value;
+	
 	int index;
 	//utiliser une string puis verifier ca taille, pour n'ir qu'un chiffre a convertir ensuite en int 
 	while (1)
@@ -101,15 +106,24 @@ void Phonebook::searchcontact()
 			index =  std::stoi(value);
 			if (index >= 0 && index < count_contact)
 			{
-				std::cout << repertory[index].getdarkest_secret();
-				std::cout << repertory[index].getfirst_name();
-				std::cout << repertory[index].getlast_name();
-				std::cout << repertory[index].getnick_name();
+				std::cout << "first name :\n";
+				std::cout << repertory[index].getfirst_name() << std::endl;
+				std::cout << "last name :\n";
+				std::cout << repertory[index].getlast_name() << std::endl;
+				std::cout << "nick name :\n";
+				std::cout << repertory[index].getnick_name() << std::endl;
+				std::cout << "phone number :\n";
 				std::cout << repertory[index].getphone_number() << std::endl;
+				std::cout << "darkest secret:\n";
+				std::cout << repertory[index].getdarkest_secret() << std::endl;
+				break ;
 			}
 			else
 				std::cout << "Bad number, no contact for this index, or not a correct number\n";
 		}
+		else
+			std::cout << "Bad argument, no contact for this index, or not a correct number\n";
+
 	}
 
 			

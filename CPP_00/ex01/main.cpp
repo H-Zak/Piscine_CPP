@@ -6,7 +6,7 @@
 /*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 17:19:00 by zhamdouc          #+#    #+#             */
-/*   Updated: 2023/06/22 14:29:16 by zhamdouc         ###   ########.fr       */
+/*   Updated: 2023/06/23 14:19:25 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,22 +30,41 @@ int main ()
 		{
 			std::string  firstname, lastname, nickname, phonenumber, darkestsecret;
 			
-			std::cout << "Enter the first name :\n";
-			if (!std::getline(std::cin, firstname))
-				break ;
-			std::cout << "Enter the last name :\n";
-			if (!std::getline(std::cin, lastname))
-				break;
-			std::cout << "Enter the nick name :\n";
-			if (!std::getline(std::cin, nickname))
-				break; 
-			std::cout << "Enter the phone number :\n";
-			if (!std::getline(std::cin, phonenumber))
-				break; 
-			std::cout << "Enter the darkest secret :\n";
-			if (!std::getline(std::cin, darkestsecret))
-				break; 
-
+			while (firstname.empty())
+			{
+				std::cout << "Enter the first name :\n";
+				if (!std::getline(std::cin, firstname))
+					return (1);
+			}
+			
+			while (lastname.empty())
+			{
+				std::cout << "Enter the last name :\n";
+				if (!std::getline(std::cin, lastname))
+					return (1);
+			}
+				
+			while (nickname.empty())
+			{
+				std::cout << "Enter the nick name :\n";
+				if (!std::getline(std::cin, nickname))
+					return (1);
+			}
+			
+			while (phonenumber.empty())
+			{
+				std::cout << "Enter the phone number :\n";
+				if (!std::getline(std::cin, phonenumber))
+					return (1);
+			}
+			
+			while (darkestsecret.empty())
+			{
+				std::cout << "Enter the darkest secret :\n";
+				if (!std::getline(std::cin, darkestsecret))
+					return (1); 
+			}
+			
 			phonebook.addcontact(firstname, lastname, nickname, phonenumber, darkestsecret);
 		}
 		else if (command == "SEARCH" || command == "search")
@@ -58,7 +77,6 @@ int main ()
 		}
 		else
 			std::cout << "command incorrect, try again\n";
-		
 	}
 	return (0);
 }
