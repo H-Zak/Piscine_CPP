@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zakariyahamdouchi <zakariyahamdouchi@st    +#+  +:+       +#+        */
+/*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 16:42:30 by zakariyaham       #+#    #+#             */
-/*   Updated: 2023/07/04 18:31:48 by zakariyaham      ###   ########.fr       */
+/*   Updated: 2023/07/05 17:47:33 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,24 @@ en matière de lecture ou d'écriture de fichiers.
 
 */
 
-int main(int argc, char **argv, std::string folder,std::string s1, std::string s2 )
+int main(int argc, char **argv)
 {
+	if (argc != 4 )
+	{
+		std::cout << "you didn't put the right number of parameter\n";
+		return 1;
+	}
 	std::string line;
 	std::ofstream file("new_file.replace");
-	std::ifstream original(folder);
+	std::ifstream original(argv[1]);
 	size_t position = 0;
+	int	len_s1 = 0;
+
+	std::string s1 = argv[2];
+	std::string s2 = argv[3];
+
+	if (!s1.empty())
+		len_s1 = s1.length();
 
 	if (original.is_open())
 	{
@@ -54,10 +66,12 @@ int main(int argc, char **argv, std::string folder,std::string s1, std::string s
 			position = line.find(s1);
 			if (position != std::string::npos)
 			{
-
+				line.erase(position, len_s1);
+				line.insert(position, s2);
+				file << line << std::endl;
 			}
 			else
-				file << line;
+				file << line << std::endl;
 		}
 		original.close();
 	}
