@@ -1,0 +1,19 @@
+ouai c'est juste que il y a des truc qui sont la et qui servent a rien mais c'est juste psk ils servent a rien sur le moment je crois
+psk du coup on pourrait juste faire :
+DiamondTrap::DiamondTrap(const DiamondTrap& other)
+    : FragTrap(other )
+et pareil du coup faut initialiser le private name de diamond qui est dans aucune classe au final donc faut l'ajouter a chaque fois
+j'ai pas encore bien compris la difference entre le name de Diamond et le name+clap_name
+
+
+et dernier truc, deso si je te soule avec mes question :
+mais par exemple pour les destructor de FragTrap et Scavtrap on a mis celle de ClapTrap, alors que pour DiamondTrap sans mettre celle de FragTrap ni celle de ScavTrap elles sont quand meme appelle
+
+
+J'ai 2  question, je les pose mtn avant d'oublier, pour cette fonction :
+DiamondTrap::DiamondTrap(const DiamondTrap& other)
+    : ClapTrap(other), ScavTrap(), FragTrap()
+{
+    std::cout << "DiamondTrap copy constructor called on " << other._name << std::endl;
+}
+pourquoi tu envois pas other a ScavTrap() et FragTrav() ? comme il initialise dans l'ordre il me semble que la copy sera mal fait il aura les valeurs par defsut de FragTrav comme c'est le 3eme et pas celui de other

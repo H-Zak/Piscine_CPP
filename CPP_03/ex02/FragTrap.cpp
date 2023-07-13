@@ -6,7 +6,7 @@
 /*   By: zakariyahamdouchi <zakariyahamdouchi@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 22:42:33 by zakariyaham       #+#    #+#             */
-/*   Updated: 2023/07/11 13:02:07 by zakariyaham      ###   ########.fr       */
+/*   Updated: 2023/07/11 16:04:04 by zakariyaham      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void FragTrap::attack(const std::string& target)
 		if (this->energy_points > 0)
 		{
 			this->energy_points = this->energy_points - 1;
-			std::cout << "FragTrap " << this->name<< " attacks "<< target << ", causing 20 points of damage !\n";
+			std::cout << "ScavTrap " << this->name<< " attacks "<< target << ", causing 20 points of damage !\n";
 		}
 		else
 			std::cout << "you are out of energy\n";
@@ -89,6 +89,6 @@ void FragTrap::attack(const std::string& target)
 
 FragTrap::~FragTrap()
 {
-	std::cout << "destructof of FragTrap is called \n";
-	ClapTrap::~ClapTrap();
+	std::cout << "destructof of FragTrap is called\n";
+	//ClapTrap::~ClapTrap();
 }
