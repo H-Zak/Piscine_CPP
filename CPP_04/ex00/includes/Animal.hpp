@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zakariyahamdouchi <zakariyahamdouchi@st    +#+  +:+       +#+        */
+/*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 16:45:10 by zakariyaham       #+#    #+#             */
-/*   Updated: 2023/07/11 16:47:25 by zakariyaham      ###   ########.fr       */
+/*   Updated: 2023/07/13 18:05:04 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,17 @@
 class Animal
 {
 private :
+	std::string type;
 
 public :
+	Animal();
+	Animal(std::string name);
+	Animal(const Animal& other);
+	Animal &operator = (const Animal&other );
+	
+	virtual void makeSound(std::string type);
 
+	~Animal();
 };
 
 #endif
