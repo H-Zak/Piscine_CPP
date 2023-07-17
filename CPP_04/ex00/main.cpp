@@ -1,35 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zakariyahamdouchi <zakariyahamdouchi@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/11 16:48:50 by zakariyaham       #+#    #+#             */
-/*   Updated: 2023/07/13 18:06:09 by zhamdouc         ###   ########.fr       */
+/*   Created: 2023/07/11 16:49:41 by zakariyaham       #+#    #+#             */
+/*   Updated: 2023/07/17 19:58:31 by zakariyaham      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Animal.hpp"
+#include "Cat.hpp"
 
-#ifndef DOG_HPP
-# define DOG_HPP
-
-class Dog : public Animal
+int main()
 {
-private :
+	Animal* zak = new Animal();
+	Cat z("habibi");
 
-public :
-	Dog();
-	Dog(std::string name);
-	Dog(const Dog& other);
-	Dog &operator = (const Dog&other );
-	
-	virtual void makeSound(std::string type);
-
-	~Dog();
-
-};
-
-#endif
+	zak->makeSound();
+	z.makeSound();
+}

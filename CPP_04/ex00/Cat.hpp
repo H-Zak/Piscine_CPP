@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zakariyahamdouchi <zakariyahamdouchi@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/13 17:52:10 by zhamdouc          #+#    #+#             */
-/*   Updated: 2023/07/13 18:14:40 by zhamdouc         ###   ########.fr       */
+/*   Created: 2023/07/11 16:47:33 by zakariyaham       #+#    #+#             */
+/*   Updated: 2023/07/17 20:17:41 by zakariyaham      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Animal.hpp"
 
-Animal::Animal()
-{
-	std::cout << "Animal default Constructor called " << std::endl;
-	this->type = " ";
-}
+#ifndef CAT_HPP
+# define CAT_HPP
 
-Animal::Animal(std::string type)
+class Cat : public Animal
 {
-	std::cout << "Animal type Constructor called " << std::endl;
-	this->type = type;
-}
+private :
 
-Animal::Animal (const Animal &other)
-{
-	
-}
+public :
+	Cat();
+	Cat(std::string name);
+	Cat(const Cat& other);
+	Cat &operator = (const Cat& other );
+
+	virtual void makeSound(void)const;
+
+	~Cat();
+
+};
+
+#endif
