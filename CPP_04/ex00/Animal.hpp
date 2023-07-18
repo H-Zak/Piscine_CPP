@@ -6,7 +6,7 @@
 /*   By: zakariyahamdouchi <zakariyahamdouchi@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 16:45:10 by zakariyaham       #+#    #+#             */
-/*   Updated: 2023/07/17 20:17:36 by zakariyaham      ###   ########.fr       */
+/*   Updated: 2023/07/17 22:11:06 by zakariyaham      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ public :
 	Animal &operator = (const Animal&other );
 
 	virtual void makeSound(void) const;
-	std::string getType(void);
+	std::string getType(void) const;
 	virtual ~Animal();
 };
 

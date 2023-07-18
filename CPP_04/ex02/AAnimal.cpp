@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   AAnimal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zakariyahamdouchi <zakariyahamdouchi@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -11,46 +11,46 @@
 /* ************************************************************************** */
 
 #include <iostream>
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 
-Animal::Animal()
+AAnimal::AAnimal()
 {
-	std::cout << "Animal default Constructor called " << std::endl;
+	std::cout << "AAnimal default Constructor called " << std::endl;
 	this->type = " ";
 }
 
-Animal::Animal(std::string type)
+AAnimal::AAnimal(std::string type)
 {
-	std::cout << "Animal type Constructor called " << std::endl;
+	std::cout << "AAnimal type Constructor called " << std::endl;
 	this->type = type;
 }
 
-Animal::Animal (const Animal &other) : type(other.type)
+AAnimal::AAnimal (const AAnimal &other) : type(other.type)
 {
-	std::cout << "Animal copy Constructor called" << std::endl;
+	std::cout << "AAnimal copy Constructor called" << std::endl;
 
 }
 
-Animal & Animal::operator=(const Animal & other)
+AAnimal & AAnimal::operator=(const AAnimal & other)
 {
-	std::cout << "Contructor operator of animal is called " << std::endl;
+	std::cout << "Contructor operator of AAnimal is called " << std::endl;
 	if (this != &other)
 		this->type = other.type;
 	return (*this);
 }
 
-void Animal::makeSound(void) const
+void AAnimal::makeSound(void) const
 {
-	std::cout << "Animal default sound\n";
+	std::cout << "AAnimal default sound\n";
 
 }
 
-std::string Animal::getType() const
+std::string AAnimal::getType() const
 {
 	return this->type;
 }
 
-Animal::~Animal()
+AAnimal::~AAnimal()
 {
-	std::cout << "Destructor of Animal is called\n";
+	std::cout << "Destructor of AAnimal is called\n";
 }

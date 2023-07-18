@@ -6,7 +6,7 @@
 /*   By: zakariyahamdouchi <zakariyahamdouchi@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 16:47:33 by zakariyaham       #+#    #+#             */
-/*   Updated: 2023/07/17 20:17:41 by zakariyaham      ###   ########.fr       */
+/*   Updated: 2023/07/17 22:10:57 by zakariyaham      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ public :
 	Cat &operator = (const Cat& other );
 
 	virtual void makeSound(void)const;
-
+	std::string getType(void) const;
 	~Cat();
 
 };

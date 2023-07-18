@@ -1,0 +1,10 @@
+Un destructeur est une fonction spéciale d'une classe qui est appelée lorsque vous voulez détruire un objet de cette classe. Il est responsable de libérer les ressources utilisées par cet objet. Par exemple, si vous avez alloué de la mémoire dynamiquement pour votre objet, le destructeur doit s'assurer de la libérer.
+
+Maintenant, imaginons que vous avez une classe de base appelée "Animal" et une classe dérivée appelée "Cat" qui hérite de la classe "Animal". Lorsque vous déclarez un objet de type "Cat", vous pouvez le détruire en appelant simplement le destructeur avec le mot-clé "delete". Cependant, si le destructeur de la classe de base "Animal" n'est pas déclaré comme virtuel, seul le destructeur de la classe de base sera appelé lors de la destruction de l'objet "Cat". Cela signifie que les ressources spécifiques à la classe "Cat" ne seront pas correctement libérées.
+
+C'est là qu'intervient le mot-clé "virtual". Lorsque vous déclarez le destructeur de la classe de base "Animal" comme virtuel, cela signifie que le destructeur peut être substitué (remplacé) dans les classes dérivées telles que "Cat". Ainsi, lorsque vous détruisez un objet "Cat" avec le mot-clé "delete", le destructeur approprié, à savoir le destructeur de la classe "Cat", sera appelé en premier pour libérer les ressources spécifiques à "Cat". Ensuite, le destructeur de la classe de base "Animal" sera appelé pour libérer les ressources de la classe de base.
+
+En résumé, en déclarant un destructeur virtuel dans une classe de base, vous vous assurez que tous les destructeurs de la hiérarchie de classes sont appelés dans l'ordre approprié lors de la destruction d'un objet polymorphique. Cela garantit une libération correcte des ressources et évite les fuites de mémoire.
+
+image.png
+image.png

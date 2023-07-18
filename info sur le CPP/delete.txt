@@ -1,0 +1,5 @@
+ lorsque vous appelez delete sur un pointeur vers un objet, deux choses se produisent :
+
+Le destructeur de l'objet est appelé, ce qui permet de libérer les ressources et d'exécuter toute autre opération de nettoyage nécessaire.
+La mémoire allouée pour l'objet est libérée, c'est-à-dire qu'elle est rendue disponible pour une utilisation ultérieure.
+Ainsi, delete effectue à la fois la libération de la mémoire et l'appel au destructeur de l'objet. Cela garantit que toutes les ressources associées à l'objet sont correctement nettoyées avant que la mémoire ne soit libérée.

@@ -1,36 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.hpp                                       :+:      :+:    :+:   */
+/*   AAnimal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zakariyahamdouchi <zakariyahamdouchi@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/17 19:24:21 by zakariyaham       #+#    #+#             */
-/*   Updated: 2023/07/17 22:12:46 by zakariyaham      ###   ########.fr       */
+/*   Created: 2023/07/11 16:45:10 by zakariyaham       #+#    #+#             */
+/*   Updated: 2023/07/18 00:44:56 by zakariyaham      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "WrongAnimal.hpp"
+#include "Brain.hpp"
 
-#ifndef WRONGCat_HPP
-#define WRONGCat_HPP
+#ifndef AAnimal_HPP
+# define AAnimal_HPP
 
-class WrongCat : public WrongAnimal
+class AAnimal
 {
 protected :
 	std::string type;
 
-public:
-	WrongCat();
-	WrongCat(std::string type);
-	WrongCat(const WrongCat &other);
-	WrongCat &operator=(const WrongCat &other);
+public :
+	AAnimal();
+	AAnimal(std::string name);
+	AAnimal(const AAnimal& other);
+	AAnimal &operator = (const AAnimal&other );
 
-	void makeSound(void) const;
-	std::string getType(void)const;
-	~WrongCat();
-
+	virtual void makeSound(void) const = 0;
+	std::string getType(void) const;
+	virtual ~AAnimal();
+	// const = 0 ==> Classe abstraite // securité pour que les utilisateurs crée un AAnimal pour avoir un brain
+	virtual Brain*  getBrain(void) const = 0;
 };
 
 #endif
