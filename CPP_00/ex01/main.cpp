@@ -6,15 +6,15 @@
 /*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 17:19:00 by zhamdouc          #+#    #+#             */
-/*   Updated: 2023/06/23 14:19:25 by zhamdouc         ###   ########.fr       */
+/*   Updated: 2023/07/19 14:07:07 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <iomanip>
 #include <string>
-#include "Contact.class.hpp"
-#include "Phonebook.class.hpp"
+#include "Contact.hpp"
+#include "PhoneBook.hpp"
 
 int main ()
 {

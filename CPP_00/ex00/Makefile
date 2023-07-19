@@ -11,10 +11,11 @@ NAME        = megaphone
 # CC        compiler
 # CFLAGS    compiler flags
 
-SRCS        = megaphone.cpp
-OBJS        = megaphone.o
+SRCS        = MegaPhone.cpp
+OBJS        = MegaPhone.o
 
-CC          = g++
+CC          = c++
+CPPFLAGS	= -std=c++98
 CFLAGS      = -Wall -Wextra -Werror
 
 #------------------------------------------------#
@@ -38,7 +39,7 @@ MAKEFLAGS   += --no-print-directory
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(OBJS) -o $(NAME)
+	$(CC) $(CFLAGS) $(CPPFLAGS) $(OBJS) -o $(NAME)
 
 clean:
 	$(RM) $(OBJS)

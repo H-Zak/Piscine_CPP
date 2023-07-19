@@ -11,10 +11,11 @@ NAME        = contact
 # CC        compiler
 # CFLAGS    compiler flags
 
-SRCS        = Contact.class.cpp main.cpp Phonebook.class.cpp
-OBJS        = Contact.class.o main.o Phonebook.class.o
+SRCS        = Contact.cpp main.cpp PhoneBook.cpp
+OBJS        = Contact.o main.o PhoneBook.o
 
 CC          = c++
+CPPFLAGS	= -std=c++98
 CFLAGS      = -Wall -Wextra -Werror
 
 #------------------------------------------------#
@@ -38,7 +39,7 @@ MAKEFLAGS   += --no-print-directory
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(OBJS) -o $(NAME)
+	$(CC) $(CFLAGS) $(CPPFLAGS) $(OBJS) -o $(NAME)
 
 clean:
 	$(RM) $(OBJS) $(NAME)

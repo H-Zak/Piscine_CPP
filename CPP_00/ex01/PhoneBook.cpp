@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Phonebook.class.cpp                                :+:      :+:    :+:   */
+/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 18:25:31 by zhamdouc          #+#    #+#             */
-/*   Updated: 2023/06/23 14:02:57 by zhamdouc         ###   ########.fr       */
+/*   Updated: 2023/07/19 14:20:46 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <iomanip>
-#include "Contact.class.hpp"
-#include "Phonebook.class.hpp"
+#include "Contact.hpp"
+#include "PhoneBook.hpp"
+#include <sstream>
 
 /*
 En C++, la notation const std::string& pour les arguments de la fonction indique une référence constante à un objet de type std::string. Une référence permet d'accéder à un objet existant sans effectuer de copie, tandis que le qualificatif const indique que l'objet référencé ne peut pas être modifié à travers cette référence.
@@ -103,7 +104,11 @@ void Phonebook::searchcontact()
 			return;
 		if (value.size() == 1)
 		{
-			index =  std::stoi(value);
+			std::istringstream iss(value);
+    		iss >> index;
+			if (iss.fail())
+       			std::cout << "Erreur de conversion." << std::endl;
+			// index =  std::stoi(value);
 			if (index >= 0 && index < count_contact)
 			{
 				std::cout << "first name :\n";

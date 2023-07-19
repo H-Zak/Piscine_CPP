@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.class.cpp                                  :+:      :+:    :+:   */
+/*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 17:19:04 by zhamdouc          #+#    #+#             */
-/*   Updated: 2023/06/21 18:17:06 by zhamdouc         ###   ########.fr       */
+/*   Updated: 2023/07/19 14:00:18 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "Contact.class.hpp"
+#include "Contact.hpp"
 
 /*
 Les "getters" (ou gueurs) sont des fonctions membres d'une classe qui permettent d'accéder aux valeurs des membres privés de cette classe depuis l'extérieur de la classe. Ils sont également appelés "accesseurs". Les getters jouent un rôle important dans l'encapsulation des données en fournissant une interface contrôlée pour accéder aux données encapsulées.

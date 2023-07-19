@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.class.hpp                                  :+:      :+:    :+:   */
+/*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 16:54:51 by zhamdouc          #+#    #+#             */
-/*   Updated: 2023/06/21 18:15:39 by zhamdouc         ###   ########.fr       */
+/*   Updated: 2023/07/19 13:58:48 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,9 @@ Cela garantit que les paramètres du constructeur ne seront pas modifiés accide
 lors de l'appel du constructeur.
 */
 #include <iostream>
-#ifndef CONTACT_CLASS_H
-# define CONTACT_CLASS_H
+
+#ifndef CONTACT_HPP
+# define CONTACT_HPP
 
 class Contact {
 private:

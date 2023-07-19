@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Phonebook.class.hpp                                :+:      :+:    :+:   */
+/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 17:19:14 by zhamdouc          #+#    #+#             */
-/*   Updated: 2023/06/22 14:27:10 by zhamdouc         ###   ########.fr       */
+/*   Updated: 2023/07/19 14:11:08 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "Contact.class.hpp"
-#ifndef PHONEBOOK_CLASS_H
-# define PHONEBOOK_CLASS_H
+#include "Contact.hpp"
+
+#ifndef PHONEBOOK_HPP
+# define PHONEBOOK_HPP
 
 class Phonebook {
 private :
 	static int const Nb_contact = 8;
 	Contact repertory[Nb_contact];
-	int count_contact = 0;
+	int count_contact;
 public:
 	Phonebook();
 	void addcontact(const std::string& first_name, const std::string& last_name, const std::string nickname, const std::string phonenumber, const std::string darkestsecret);
