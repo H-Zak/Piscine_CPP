@@ -6,11 +6,12 @@
 /*   By: zakariyahamdouchi <zakariyahamdouchi@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 02:12:24 by zakariyaham       #+#    #+#             */
-/*   Updated: 2023/07/18 02:23:06 by zakariyaham      ###   ########.fr       */
+/*   Updated: 2023/07/18 16:26:26 by zakariyaham      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include "ICharacter.hpp"
 
 #ifndef AMATERIA_HPP
 # define AMATERIA_HPP
