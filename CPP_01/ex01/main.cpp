@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zheylkoss <zheylkoss@student.42.fr>        +#+  +:+       +#+        */
+/*   By: zakariyahamdouchi <zakariyahamdouchi@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 14:53:33 by zhamdouc          #+#    #+#             */
-/*   Updated: 2023/07/03 21:25:04 by zheylkoss        ###   ########.fr       */
+/*   Updated: 2023/07/19 18:20:40 by zakariyaham      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,33 @@
 
 int main()
 {
-	int n = 4;
-	Zombie *zombie_1;
+	Zombie *newZombie = zombieHorde(10, "Bob");
 
-	zombie_1 = zombieHorde(n, "first");
-	if (n != 0)
-		delete[] zombie_1;
+    std::cout << "TEST 1:" << std::endl;
+    for (int i = 0; i < 10; i++)
+    {
+        newZombie[i].announce();
+    }
+    std::cout << std::endl;
+
+    std::cout << "TEST 2:" << std::endl;
+    newZombie[5].setName("jojo");
+    for (int i = 0; i < 10; i++)
+    {
+        newZombie[i].announce();
+    }
+    delete [] newZombie;
+
+    Zombie *horde2 = zombieHorde(0, "Bib");
+    if (horde2)
+        horde2[0].announce();
+
+    delete [] horde2;
+
+    Zombie *horde3 = zombieHorde(-10, "Bab");
+    if (horde3)
+        horde3[0].announce();
+
+    delete [] horde3;
+    return (0);
 }

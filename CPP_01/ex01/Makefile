@@ -15,6 +15,7 @@ SRCS        = main.cpp newZombie.cpp Zombie.cpp Zombie.hpp
 OBJS        = Zombie.o main.o newZombie.o
 
 CC          = c++
+CPPFLAGS	= -std=c++98
 CFLAGS      = -Wall -Wextra -Werror -g
 
 #------------------------------------------------#
@@ -38,7 +39,7 @@ MAKEFLAGS   += --no-print-directory
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) 
+	$(CC) $(CFLAGS) $(CPPFLAGS) $(OBJS) -o $(NAME)
 
 clean:
 	$(RM) $(OBJS) $(NAME)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   randomChum.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zheylkoss <zheylkoss@student.42.fr>        +#+  +:+       +#+        */
+/*   By: zakariyahamdouchi <zakariyahamdouchi@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 17:42:51 by zhamdouc          #+#    #+#             */
-/*   Updated: 2023/07/03 19:47:10 by zheylkoss        ###   ########.fr       */
+/*   Updated: 2023/07/19 18:05:03 by zakariyaham      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,8 @@
 
 void randomChump( std::string name )
 {
-	Zombie zombie_2;
+	Zombie zombie_2(name);
 
-	zombie_2.Mynameis("second");
 	zombie_2.announce();
 	return ;
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zheylkoss <zheylkoss@student.42.fr>        +#+  +:+       +#+        */
+/*   By: zakariyahamdouchi <zakariyahamdouchi@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 22:40:14 by zheylkoss         #+#    #+#             */
-/*   Updated: 2023/07/03 23:52:29 by zheylkoss        ###   ########.fr       */
+/*   Updated: 2023/07/19 18:43:58 by zakariyaham      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@
 
 
 HumanB::~HumanB (){
-    
+
 }
 
-void HumanB::setWeapon(Weapon *value)
+void HumanB::setWeapon(Weapon &value)
 {
-    this->weapon = value;
+    this->weapon = &value;
 }
 
 void HumanB::attack()

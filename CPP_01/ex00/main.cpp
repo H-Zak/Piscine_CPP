@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zheylkoss <zheylkoss@student.42.fr>        +#+  +:+       +#+        */
+/*   By: zakariyahamdouchi <zakariyahamdouchi@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 14:53:33 by zhamdouc          #+#    #+#             */
-/*   Updated: 2023/07/03 19:48:08 by zheylkoss        ###   ########.fr       */
+/*   Updated: 2023/07/19 18:00:11 by zakariyaham      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,19 @@
 
 int main()
 {
-	Zombie *zombie_1;
-	
-	zombie_1 = newZombie("first");
-	randomChump("FOO");
-	delete zombie_1;
+	 // Stack
+    std::cout << "Test 1: Basic" << std::endl;
+	Zombie	zombieName("Bill");
+	zombieName.announce();
+
+    // Heap
+    std::cout << "Test 2: New Zombie" << std::endl;
+    Zombie  *zombieNew = newZombie("Bob");
+    zombieNew->announce();
+    delete(zombieNew);
+
+    std::cout << "Test 3: Random Zombie" << std::endl;
+    randomChump("Dope");
+
+    return (0);
 }

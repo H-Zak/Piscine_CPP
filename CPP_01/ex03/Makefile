@@ -11,10 +11,18 @@ NAME        = Cerveau
 # CC        compiler
 # CFLAGS    compiler flags
 
-SRCS        = main.cpp 
-OBJS        = main.o
+SRCS        = main.cpp\
+				HumanA.cpp HumanA.hpp \
+				HumanB.cpp HumanB.hpp\
+				Weapon.cpp Weapon.hpp
+
+OBJS        = main.o \
+				HumanA.o \
+				HumanB.o \
+				Weapon.o
 
 CC          = c++
+CPPFLAGS	= -std=c++98
 CFLAGS      = -Wall -Wextra -Werror
 
 #------------------------------------------------#
@@ -38,7 +46,7 @@ MAKEFLAGS   += --no-print-directory
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(OBJS) -o $(NAME)
+	$(CC) $(CFLAGS) $(CPPFLAGS) $(OBJS) -o $(NAME)
 
 clean:
 	$(RM) $(OBJS) $(NAME)

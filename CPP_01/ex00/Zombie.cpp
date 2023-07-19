@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zheylkoss <zheylkoss@student.42.fr>        +#+  +:+       +#+        */
+/*   By: zakariyahamdouchi <zakariyahamdouchi@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 14:58:32 by zhamdouc          #+#    #+#             */
-/*   Updated: 2023/07/03 19:58:48 by zheylkoss        ###   ########.fr       */
+/*   Updated: 2023/07/19 18:13:06 by zakariyaham      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,24 @@
 #include <string>
 #include "Zombie.hpp"
 
-Zombie::Zombie() {
-
+Zombie::Zombie()
+{
+	std::cout << "Constructor called" << std::endl;
 }
 
-Zombie::~Zombie() {
-
-}
 
 void Zombie::announce(void)
 {
 	std::cout << this->name << ": BraiiiiiiinnnzzzZ..." << "\n";
 }
 
-void	Zombie::Mynameis(std::string zombie_name)
+Zombie::Zombie(std::string zombie_name)
 {
+	std::cout << "name Constructor called" << std::endl;
 	this->name = zombie_name;
+}
+
+Zombie::~Zombie()
+{
+	std::cout << "Destructor called" << std::endl;
 }

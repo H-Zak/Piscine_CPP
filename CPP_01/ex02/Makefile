@@ -11,10 +11,11 @@ NAME        = Cerveau
 # CC        compiler
 # CFLAGS    compiler flags
 
-SRCS        = main.cpp 
+SRCS        = main.cpp
 OBJS        = main.o
 
 CC          = c++
+CPPFLAGS	= -std=c++98
 CFLAGS      = -Wall -Wextra -Werror
 
 #------------------------------------------------#
@@ -38,7 +39,7 @@ MAKEFLAGS   += --no-print-directory
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(OBJS) -o $(NAME)
+	$(CC) $(CPPFLAGS) $(CFLAGS) $(OBJS) -o $(NAME)
 
 clean:
 	$(RM) $(OBJS) $(NAME)
