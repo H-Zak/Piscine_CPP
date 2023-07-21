@@ -12,9 +12,10 @@ NAME        = main
 # CFLAGS    compiler flags
 
 SRCS        = main.cpp Fixed.cpp Fixed.hpp
-OBJS        = main.o main.o Fixed.o 
+OBJS        = main.o Fixed.o
 
 CC          = c++
+CPPFLAGS	= -std=c++98
 CFLAGS      = -Wall -Wextra -Werror
 
 #------------------------------------------------#
@@ -38,7 +39,7 @@ MAKEFLAGS   += --no-print-directory
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(OBJS) -o $(NAME)
+	$(CC) $(CPPFLAGS) $(CFLAGS) $(OBJS) -o $(NAME)
 
 clean:
 	$(RM) $(OBJS) $(NAME)

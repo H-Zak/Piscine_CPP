@@ -6,14 +6,16 @@
 /*   By: zakariyahamdouchi <zakariyahamdouchi@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 16:48:33 by zakariyaham       #+#    #+#             */
-/*   Updated: 2023/07/06 19:55:20 by zakariyaham      ###   ########.fr       */
+/*   Updated: 2023/07/20 15:13:16 by zakariyaham      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 
 #ifndef FIXED_HPP
 # define FIXED_HPP
+
+#include <iostream>
+#include <cmath>
 
 class Fixed{
 private :

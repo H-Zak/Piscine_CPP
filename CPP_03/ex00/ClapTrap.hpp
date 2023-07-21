@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Claptrap.hpp                                       :+:      :+:    :+:   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zakariyahamdouchi <zakariyahamdouchi@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/09 18:14:41 by zakariyaham       #+#    #+#             */
-/*   Updated: 2023/07/09 19:56:34 by zakariyaham      ###   ########.fr       */
+/*   Updated: 2023/07/20 15:20:09 by zakariyaham      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class ClapTrap{
 private :
 	std::string name;
-	int hit_point;
+	unsigned int hit_point;
 	int energy_points;
 	int attack_damage;
 
