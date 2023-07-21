@@ -3,14 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zakariyahamdouchi <zakariyahamdouchi@st    +#+  +:+       +#+        */
+/*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 17:32:36 by zakariyaham       #+#    #+#             */
-/*   Updated: 2023/07/20 19:19:54 by zakariyaham      ###   ########.fr       */
+/*   Updated: 2023/07/21 16:45:55 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
+#include "Bureaucrat.hpp"
+#include <fstream>
 
 
 Form::Form() : name("nobody"), grade_exec(1), grade_sign(1), Signed(false)
@@ -48,21 +50,21 @@ Form &Form::operator=(const Form &other)
 }
 
 
-std::string Form::getName(void)
+std::string Form::getName(void) const
 {
 	return this->name;
 }
 
-int Form::getGradeSign(void)
+int Form::getGradeSign(void) const 
 {
 	return this->grade_sign;
 }
-int Form::getGradeExec(void)
+int Form::getGradeExec(void) const
 {
 	return this->grade_exec;
 }
 
-bool Form::getSigned(void)
+bool Form::getSigned(void) const
 {
 	return Signed;
 }
@@ -71,14 +73,22 @@ bool Form::beSigned(const Bureaucrat &user)
 {
 	if (user.getGrade() <= this->getGradeSign())
 	{
-		this->Signed = Signed;
+		this->Signed = true;
 		return Signed;
 	}
 	else
 	{
-		throw (Bureaucrat::GradeTooLowException());
-		return Signed;
+		throw (Form::GradeTooLowException());
+		this->Signed = false;
+		return this->Signed;
 	}
+}
+
+std::ostream &operator<<(std::ostream &os, const Form &src)
+{
+	os << "name of the Form " << src.getName() << " the grade you need to sign " << src.getGradeSign();
+	os << " the grade you need to excecute " << src.getGradeExec() << " is this Form sign ? " << src.getSigned() << std::endl;
+	return os;
 }
 
 Form::~Form()

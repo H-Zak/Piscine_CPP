@@ -1,60 +1,41 @@
-###################################### BEG_1 ####
+CC				:=	c++
+CPPFLAGS		:=	-Wall -Werror -Wextra -std=c++98 -MMD -MP
 
-NAME        = contact
+# Directories
+SRC_DIR			:=	.
+OBJ_DIR			:=	obj
 
-#------------------------------------------------#
-#   INGREDIENTS                                  #
-#------------------------------------------------#
-# SRCS      source files
-# OBJS      object files
-#
-# CC        compiler
-# CFLAGS    compiler flags
+# Source files
+SRCS			:=	$(wildcard $(SRC_DIR)/*.cpp)
+OBJS			:=	$(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SRCS))
+TARGET			:=	Contact
 
-SRCS        = Contact.cpp main.cpp PhoneBook.cpp
-OBJS        = Contact.o main.o PhoneBook.o
+# Progress bar function
+define progress_bar
+		@echo "\033[1;34mCompiling:\033[0m"
+		@$(1)
+		@sleep 0.2
+		@echo "\033[1;32mDone\033[0m"
+endef
 
-CC          = c++
-CPPFLAGS	= -std=c++98
-CFLAGS      = -Wall -Wextra -Werror
+# Targets
+all: $(TARGET)
 
-#------------------------------------------------#
-#   UTENSILS                                     #
-#------------------------------------------------#
-# RM        force remove
-# MAKEFLAGS make flags
+$(TARGET): $(OBJS)
+		$(call progress_bar,$(CC) $^ -o $(BIN_DIR)$@)
 
-RM          = rm -f
-MAKEFLAGS   += --no-print-directory
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp | $(OBJ_DIR)
+		@$(CC) $(CPPFLAGS) -c $< -o $@
 
-#------------------------------------------------#
-#   RECIPES                                      #
-#------------------------------------------------#
-# all       default goal
-# $(NAME)   linking .o -> binary
-# clean     remove .o
-# fclean    remove .o + binary
-# re        remake default goal
-
-all: $(NAME)
-
-$(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(CPPFLAGS) $(OBJS) -o $(NAME)
+$(OBJ_DIR):
+		@mkdir -p $(OBJ_DIR)
 
 clean:
-	$(RM) $(OBJS) $(NAME)
+		rm -rf $(OBJ_DIR)
 
 fclean: clean
-	$(RM) $(NAME)
+		rm -f $(TARGET)
 
-re:
-	$(MAKE) fclean
-	$(MAKE) all
+re: fclean all
 
-#------------------------------------------------#
-#   SPEC                                         #
-#------------------------------------------------#
-
-.PHONY: clean fclean re
-
-####################################### END_1 ####
+.PHONY: all clean fclean re

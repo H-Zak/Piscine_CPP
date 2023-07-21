@@ -3,16 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zakariyahamdouchi <zakariyahamdouchi@st    +#+  +:+       +#+        */
+/*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 03:34:42 by zakariyaham       #+#    #+#             */
-/*   Updated: 2023/07/20 19:02:17 by zakariyaham      ###   ########.fr       */
+/*   Updated: 2023/07/21 16:44:01 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 #include <stdexcept>
+#include <fstream>
+#include <iostream>
 
 int main()
 {

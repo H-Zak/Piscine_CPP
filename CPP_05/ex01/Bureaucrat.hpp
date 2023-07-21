@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zakariyahamdouchi <zakariyahamdouchi@st    +#+  +:+       +#+        */
+/*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 02:25:08 by zakariyaham       #+#    #+#             */
-/*   Updated: 2023/07/20 19:21:11 by zakariyaham      ###   ########.fr       */
+/*   Updated: 2023/07/21 16:41:55 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 #ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
 
-#include "Form.hpp"
 #include <iostream>
+#include <fstream>
+class Form;
 
 class Bureaucrat
 {
@@ -41,7 +42,7 @@ public :
 		virtual const char *what() const throw();
     };
 
-	void	signForm(const Form &user);
+	void	signForm(Form &user);
 	const std::string getName(void) const ;
 	int getGrade(void) const;
 	void lowerGrade(void);

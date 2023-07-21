@@ -1,6 +1,6 @@
 ###################################### BEG_1 ####
 
-NAME        = Cerveau
+NAME        = replace
 
 #------------------------------------------------#
 #   INGREDIENTS                                  #
@@ -16,7 +16,7 @@ OBJS        = main.o
 
 CC          = c++
 CPPFLAGS	= -std=c++98
-CFLAGS      = -Wall -Wextra -Werror
+CFLAGS      = -Wall -Wextra -Werror -g
 
 #------------------------------------------------#
 #   UTENSILS                                     #

@@ -1,41 +1,41 @@
-NAME 			= Animal
+CC				:=	c++
+CPPFLAGS		:=	-Wall -Werror -Wextra -std=c++98 -MMD -MP
 
-CC 				= c++
-CFLAGS			= -Wall -Wextra -Werror
-CPPFLAGS		= -std=c++98
+# Directories
+SRC_DIR			:=	.
+OBJ_DIR			:=	obj
 
-OBJ_PATH		= objs/
+# Source files
+SRCS			:=	$(wildcard $(SRC_DIR)/*.cpp)
+OBJS			:=	$(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SRCS))
+TARGET			:=	bureaucrat
 
-SRC				= main.cpp \
-					Bureaucrat.cpp \
-					Form.cpp
+# Progress bar function
+define progress_bar
+		@echo "\033[1;34mCompiling:\033[0m\n"
+		@$(1)
+		@sleep 0.2
+		@echo "\033[1;32mDone\033[0m"
+endef
 
-OBJ				= $(addprefix $(OBJ_PATH), $(SRC:.cpp=.o))
+# Targets
+all: $(TARGET)
 
-####### COLORS #######
+$(TARGET): $(OBJS)
+		$(call progress_bar,$(CC) $^ -o $(BIN_DIR)$@)
 
-GREEN = "\033[38;5;150m"
-CYAN = "\033[38;5;140m"
-BOLD = "\033[1m"
-NC = "\033[0m"
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp | $(OBJ_DIR)
+		@$(CC) $(CPPFLAGS) -c $< -o $@
 
-all : ${NAME}
+$(OBJ_DIR):
+		@mkdir -p $(OBJ_DIR)
 
-${NAME} : ${OBJ}
-	${CC} ${CFLAGS} ${CPPFLAGS} ${OBJ} -o ${NAME}
-	@echo ${CYAN}Compiling ${NAME}${NC} [${GREEN}OK${NC}]
+clean:
+		rm -rf $(OBJ_DIR)
 
-$(OBJ_PATH)%.o : %.cpp
-	@mkdir -p ${OBJ_PATH}
-	${CC} ${CFLAGS} ${CPPFLAGS} -o $@ -c $<
+fclean: clean
+		rm -f $(TARGET)
 
-clean :
-	rm -rf ${OBJ_PATH}
+re: fclean all
 
-
-fclean : clean
-	rm -f ${NAME}
-
-re : fclean all
-
-.PHONY : all clean fclean
+.PHONY: all clean fclean re

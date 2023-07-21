@@ -6,7 +6,7 @@
 /*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 16:42:30 by zakariyaham       #+#    #+#             */
-/*   Updated: 2023/07/05 17:47:33 by zhamdouc         ###   ########.fr       */
+/*   Updated: 2023/07/21 17:28:44 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,15 +63,21 @@ int main(int argc, char **argv)
 	{
 		while (std::getline(original, line))
 		{
-			position = line.find(s1);
-			if (position != std::string::npos)
+			while (1)
 			{
-				line.erase(position, len_s1);
-				line.insert(position, s2);
-				file << line << std::endl;
+				position = line.find(s1, position);
+				if (position != std::string::npos)
+				{
+					line.erase(position, len_s1);
+					line.insert(position, s2);
+					position = position + s2.length();
+				}
+				else
+				{
+					file << line << std::endl;
+					break ;
+				}
 			}
-			else
-				file << line << std::endl;
 		}
 		original.close();
 	}
