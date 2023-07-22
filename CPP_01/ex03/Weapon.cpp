@@ -3,32 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zheylkoss <zheylkoss@student.42.fr>        +#+  +:+       +#+        */
+/*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 22:40:25 by zheylkoss         #+#    #+#             */
-/*   Updated: 2023/07/03 23:56:02 by zheylkoss        ###   ########.fr       */
+/*   Updated: 2023/07/22 13:37:27 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Weapon.hpp"
 
-Weapon::Weapon(){
-    
+Weapon::Weapon()
+{	
+	this->type = "";
 }
 
-Weapon::~Weapon(){
-    
-}
 
-std::string &Weapon::getType()
+std::string Weapon::getType() const
 {
-    std::string &type_copy = this->type;
-
-    return type_copy;
+    return this->type;;
 }
 
 void    Weapon::setType(std::string value)
 {
     this->type = value;
+}
+
+Weapon::~Weapon(){
+    
 }

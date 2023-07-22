@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zakariyahamdouchi <zakariyahamdouchi@st    +#+  +:+       +#+        */
+/*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 17:53:59 by zhamdouc          #+#    #+#             */
-/*   Updated: 2023/07/20 15:02:58 by zakariyaham      ###   ########.fr       */
+/*   Updated: 2023/07/22 15:58:27 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <functional>
-#include <unordered_map>
 #include <string>
 
 #ifndef HARL_HPP
@@ -24,10 +23,9 @@ private :
 	void info( void );
 	void warning( void );
 	void error( void );
-	std::unordered_map<std::string, std::function<void()>> complainMap;
 
 public :
-	Harl();
+	Harl(){};
 	void complain( std::string level );
 	~Harl(){};
 };

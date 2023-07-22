@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zakariyahamdouchi <zakariyahamdouchi@st    +#+  +:+       +#+        */
+/*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 22:40:14 by zheylkoss         #+#    #+#             */
-/*   Updated: 2023/07/19 18:43:58 by zakariyaham      ###   ########.fr       */
+/*   Updated: 2023/07/22 14:10:48 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,14 @@
 #include "Weapon.hpp"
 #include "HumanB.hpp"
 
+HumanB::HumanB(std::string value): name(value), weapon(NULL)
+{
+	std::cout << "HumanB constructor called\n";
+}
 
-HumanB::~HumanB (){
+HumanB::~HumanB ()
+{
+	std::cout << "HumanB destructor called\n";
 
 }
 

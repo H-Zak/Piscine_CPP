@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zheylkoss <zheylkoss@student.42.fr>        +#+  +:+       +#+        */
+/*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 22:40:27 by zheylkoss         #+#    #+#             */
-/*   Updated: 2023/07/03 23:55:59 by zheylkoss        ###   ########.fr       */
+/*   Updated: 2023/07/22 13:36:34 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ public :
     Weapon();
     Weapon(std::string value) : type(value){};
     void setType(std::string value);
-    std::string &getType(void);
+    std::string getType(void) const;
     ~Weapon();
 };
 

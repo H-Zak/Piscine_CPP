@@ -6,30 +6,13 @@
 /*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 17:57:10 by zhamdouc          #+#    #+#             */
-/*   Updated: 2023/07/05 18:50:28 by zhamdouc         ###   ########.fr       */
+/*   Updated: 2023/07/22 16:04:27 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Harl.hpp"
 
-Harl::Harl()
-{
- 	complainMap["debug"] = [this]() { debug(); };
-    complainMap["info"] = [this]() { info(); };
-    complainMap["warning"] = [this]() { warning(); };
-    complainMap["error"] = [this]() { error(); };
-	
-}
-
-void Harl::complain(std::string level)
-{
-	auto choice = complainMap.find(level);
-	if (choice != complainMap.end())
-		choice->second();
-	else
-		std::cout << "Unknown complain\n";
-}
 
 void Harl::debug(void)
 {
@@ -49,4 +32,32 @@ void Harl::warning(void)
 void Harl::error(void)
 {
 	std::cout << "This is unacceptable ! I want to speak to the manager now.\n";
+}
+
+void Harl::complain(std::string level)
+{
+	void (Harl::*fonctionPtr[4])() =
+	{
+		&Harl::debug,
+		&Harl::info,
+		&Harl::warning,
+		&Harl::error,
+	};
+	std::string fonction_lvl[4]=
+	{
+		"DEBUG",
+		"INFO",
+		"WARNING",
+		"ERROR",
+	};
+	for(int i = 0; i < 4; i++)
+	{
+		if (level == fonction_lvl[i])
+		{
+			(this->*fonctionPtr[i])();
+			return ;
+		}
+	}
+	return ;
+	
 }

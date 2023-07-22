@@ -6,7 +6,7 @@
 /*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 16:42:30 by zakariyaham       #+#    #+#             */
-/*   Updated: 2023/07/21 17:28:44 by zhamdouc         ###   ########.fr       */
+/*   Updated: 2023/07/22 14:57:32 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,9 @@ int main(int argc, char **argv)
 		return 1;
 	}
 	std::string line;
-	std::ofstream file("new_file.replace");
+	std::string file_name = argv[1];
+	file_name += ".replace";
+	std::ofstream file(file_name.c_str());
 	std::ifstream original(argv[1]);
 	size_t position = 0;
 	int	len_s1 = 0;
@@ -82,6 +84,9 @@ int main(int argc, char **argv)
 		original.close();
 	}
 	else
+	{
 		std::cout << "Error during the openning of the file" << std::endl;
+		return 1;
+	}
 	return 0;
 }

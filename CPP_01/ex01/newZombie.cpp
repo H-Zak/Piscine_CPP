@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   newZombie.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zakariyahamdouchi <zakariyahamdouchi@st    +#+  +:+       +#+        */
+/*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 19:19:08 by zheylkoss         #+#    #+#             */
-/*   Updated: 2023/07/19 18:21:58 by zakariyaham      ###   ########.fr       */
+/*   Updated: 2023/07/22 13:19:56 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,10 @@ Zombie* zombieHorde(int n , std::string name )
 	zombie_1 = new Zombie[n];
 	while (i < n)
 	{
-		zombie_1[i].setName(name);
+		if (i == 0)
+			zombie_1[i].setName("zak");
+		else
+			zombie_1[i].setName(name);
 		zombie_1[i].announce();
 		i++;
 	}
