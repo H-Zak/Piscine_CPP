@@ -6,7 +6,7 @@
 /*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 17:57:10 by zhamdouc          #+#    #+#             */
-/*   Updated: 2023/07/22 16:04:27 by zhamdouc         ###   ########.fr       */
+/*   Updated: 2023/07/22 17:47:21 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void Harl::error(void)
 
 void Harl::complain(std::string level)
 {
-	void (Harl::*fonctionPtr[4])() =
+	void (Harl::*fonctionPtr[])() =
 	{
 		&Harl::debug,
 		&Harl::info,

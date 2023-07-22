@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AAForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 15:46:07 by zakariyaham       #+#    #+#             */
-/*   Updated: 2023/07/22 17:22:28 by zhamdouc         ###   ########.fr       */
+/*   Updated: 2023/07/22 18:02:56 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#ifndef FORM_HPP
-# define FORM_HPP
+#ifndef AForm_HPP
+# define AForm_HPP
 
 #include "Bureaucrat.hpp"
-#include <iostream>
-#include <fstream>
 
-class Form
+class AForm
 {
 private :
 	std::string name;
@@ -27,11 +25,11 @@ private :
 	bool Signed;
 
 public :
-	Form();
-	Form(std::string name, int grade_sign, int grade_exec);
-	Form(const Form &other);
-	Form &operator=(const Form &other);
-	~Form();
+	AForm();
+	AForm(std::string name, int grade_sign, int grade_exec);
+	AForm(const AForm &other);
+	AForm &operator=(const AForm &other);
+	~AForm();
 
 	class	GradeTooHightException : public std::exception
 	{
@@ -45,12 +43,12 @@ public :
     };
 
 	std::string getName(void) const;
-	int getGradeSign(void) const;
+	virtual int getGradeSign(void) const = 0;
 	bool beSigned(const Bureaucrat & user);
 	int getGradeExec(void) const;
 	bool getSigned(void) const;
 };
 
-std::ostream &operator<<(std::ostream &os, const Form &src);
+std::ostream &operator<<(std::ostream &os, const AForm &src);
 
 #endif
