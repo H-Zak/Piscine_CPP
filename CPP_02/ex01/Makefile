@@ -1,60 +1,54 @@
-###################################### BEG_1 ####
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: zakariyahamdouchi <zakariyahamdouchi@st    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/07/22 21:46:23 by zakariyaham       #+#    #+#              #
+#    Updated: 2023/07/22 21:46:24 by zakariyaham      ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-NAME        = main
+CC				:=	c++
+CPPFLAGS		:=	-Wall -Werror -Wextra -std=c++98 -MMD -MP
 
-#------------------------------------------------#
-#   INGREDIENTS                                  #
-#------------------------------------------------#
-# SRCS      source files
-# OBJS      object files
-#
-# CC        compiler
-# CFLAGS    compiler flags
+# Directories
+SRC_DIR			:=	.
+OBJ_DIR			:=	obj
 
-SRCS        = main.cpp Fixed.cpp Fixed.hpp
-OBJS        = main.o Fixed.o
+# Source files
+SRCS			:=	$(wildcard $(SRC_DIR)/*.cpp)
+OBJS			:=	$(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SRCS))
+TARGET			:=	Harl
 
-CC          = c++
-CPPFLAGS	= -std=c++98
-CFLAGS      = -Wall -Wextra -Werror
+# Progress bar function
+define progress_bar
+		@echo "\033[1;34mCompiling:\033[0m"
+		@$(1)
+		@sleep 0.2
+		@echo "\033[1;32mDone\033[0m"
+endef
 
-#------------------------------------------------#
-#   UTENSILS                                     #
-#------------------------------------------------#
-# RM        force remove
-# MAKEFLAGS make flags
+# Targets
+all: $(TARGET)
 
-RM          = rm -f
-MAKEFLAGS   += --no-print-directory
+$(TARGET): $(OBJS)
+		$(call progress_bar,$(CC) $^ -o $(BIN_DIR)$@)
 
-#------------------------------------------------#
-#   RECIPES                                      #
-#------------------------------------------------#
-# all       default goal
-# $(NAME)   linking .o -> binary
-# clean     remove .o
-# fclean    remove .o + binary
-# re        remake default goal
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp | $(OBJ_DIR)
+		@$(CC) $(CPPFLAGS) -c $< -o $@
 
-all: $(NAME)
-
-$(NAME): $(OBJS)
-	$(CC) $(CPPFLAGS) $(CFLAGS) $(OBJS) -o $(NAME)
+$(OBJ_DIR):
+		@mkdir -p $(OBJ_DIR)
 
 clean:
-	$(RM) $(OBJS) $(NAME)
+		rm -rf $(OBJ_DIR)
 
 fclean: clean
-	$(RM) $(NAME)
+		rm -f $(TARGET)
 
-re:
-	$(MAKE) fclean
-	$(MAKE) all
+re: fclean all
 
-#------------------------------------------------#
-#   SPEC                                         #
-#------------------------------------------------#
+.PHONY: all clean fclean re
 
-.PHONY: clean fclean re
-
-####################################### END_1 ####

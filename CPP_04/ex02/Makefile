@@ -1,45 +1,54 @@
-NAME 			= Animal
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: zakariyahamdouchi <zakariyahamdouchi@st    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/07/22 21:50:44 by zakariyaham       #+#    #+#              #
+#    Updated: 2023/07/22 21:51:01 by zakariyaham      ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-CC 				= c++
-CFLAGS			= -Wall -Wextra -Werror
-CPPFLAGS		= -std=c++98
+CC				:=	c++
+CPPFLAGS		:=	-Wall -Werror -Wextra -std=c++98 -MMD -MP
 
-OBJ_PATH		= objs/
+# Directories
+SRC_DIR			:=	.
+OBJ_DIR			:=	obj
 
-SRC				= main.cpp \
-					AAnimal.cpp \
-					Dog.cpp \
-					Cat.cpp \
-					WrongAnimal.cpp \
-					WrongCat.cpp \
-					Brain.cpp
+# Source files
+SRCS			:=	$(wildcard $(SRC_DIR)/*.cpp)
+OBJS			:=	$(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SRCS))
+TARGET			:=	Animal
 
-OBJ				= $(addprefix $(OBJ_PATH), $(SRC:.cpp=.o))
+# Progress bar function
+define progress_bar
+		@echo "\033[1;34mCompiling:\033[0m"
+		@$(1)
+		@sleep 0.2
+		@echo "\033[1;32mDone\033[0m"
+endef
 
-####### COLORS #######
+# Targets
+all: $(TARGET)
 
-GREEN = "\033[38;5;150m"
-CYAN = "\033[38;5;140m"
-BOLD = "\033[1m"
-NC = "\033[0m"
+$(TARGET): $(OBJS)
+		$(call progress_bar,$(CC) $^ -o $(BIN_DIR)$@)
 
-all : ${NAME}
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp | $(OBJ_DIR)
+		@$(CC) $(CPPFLAGS) -c $< -o $@
 
-${NAME} : ${OBJ}
-	${CC} ${CFLAGS} ${CPPFLAGS} ${OBJ} -o ${NAME}
-	@echo ${CYAN}Compiling ${NAME}${NC} [${GREEN}OK${NC}]
+$(OBJ_DIR):
+		@mkdir -p $(OBJ_DIR)
 
-$(OBJ_PATH)%.o : %.cpp
-	@mkdir -p ${OBJ_PATH}
-	${CC} ${CFLAGS} ${CPPFLAGS} -o $@ -c $<
+clean:
+		rm -rf $(OBJ_DIR)
 
-clean :
-	rm -rf ${OBJ_PATH}
+fclean: clean
+		rm -f $(TARGET)
 
+re: fclean all
 
-fclean : clean
-	rm -f ${NAME}
+.PHONY: all clean fclean re
 
-re : fclean all
-
-.PHONY : all clean fclean

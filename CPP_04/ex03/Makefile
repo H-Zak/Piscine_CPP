@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: zakariyahamdouchi <zakariyahamdouchi@st    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/07/22 21:50:32 by zakariyaham       #+#    #+#              #
-#    Updated: 2023/07/22 21:50:37 by zakariyaham      ###   ########.fr        #
+#    Created: 2023/07/22 21:51:22 by zakariyaham       #+#    #+#              #
+#    Updated: 2023/07/22 21:51:33 by zakariyaham      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ OBJ_DIR			:=	obj
 # Source files
 SRCS			:=	$(wildcard $(SRC_DIR)/*.cpp)
 OBJS			:=	$(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SRCS))
-TARGET			:=	Brain
+TARGET			:=	Materia
 
 # Progress bar function
 define progress_bar
