@@ -6,7 +6,7 @@
 /*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 22:40:25 by zheylkoss         #+#    #+#             */
-/*   Updated: 2023/07/22 13:37:27 by zhamdouc         ###   ########.fr       */
+/*   Updated: 2023/07/24 14:29:14 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 Weapon::Weapon()
 {	
 	this->type = "";
+	std::cout << "default Weapon constructor called\n";
 }
 
 
@@ -29,6 +30,7 @@ void    Weapon::setType(std::string value)
     this->type = value;
 }
 
-Weapon::~Weapon(){
-    
+Weapon::~Weapon()
+{
+    std::cout << "Weapon Destructor called\n";
 }

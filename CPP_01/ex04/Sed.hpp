@@ -1,22 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newZombie.cpp                                      :+:      :+:    :+:   */
+/*   Sed.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/03 19:19:08 by zheylkoss         #+#    #+#             */
-/*   Updated: 2023/07/24 13:51:27 by zhamdouc         ###   ########.fr       */
+/*   Created: 2023/07/24 13:55:22 by zhamdouc          #+#    #+#             */
+/*   Updated: 2023/07/24 14:16:57 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef SED_HPP
+# define SED_HPP
+
+#include <fstream>
 #include <iostream>
-#include "Zombie.hpp"
 
-Zombie* newZombie( std::string name )
+class Sed
 {
-	Zombie *zombie_1 = new Zombie(name);
+private :
+	std::string line;
+	std::string file_name;
+	size_t position;
+	int	len_s1;
+	std::string s1;
+	std::string s2;
 
-	zombie_1->announce();
-	return	zombie_1;
-}
+public :
+	Sed();
+	Sed(char **argv);
+	int do_it(char **argv);
+	~Sed();
+};
+
+#endif

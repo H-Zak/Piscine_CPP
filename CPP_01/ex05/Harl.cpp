@@ -6,13 +6,24 @@
 /*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 17:57:10 by zhamdouc          #+#    #+#             */
-/*   Updated: 2023/07/22 17:47:21 by zhamdouc         ###   ########.fr       */
+/*   Updated: 2023/07/24 14:08:38 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Harl.hpp"
 
+
+Harl::Harl()
+{
+	std::cout << "default Harl constructor called\n";
+}
+
+
+Harl::~Harl()
+{
+	std::cout << "Harl Destructor called\n";
+}
 
 void Harl::debug(void)
 {
@@ -36,7 +47,7 @@ void Harl::error(void)
 
 void Harl::complain(std::string level)
 {
-	void (Harl::*fonctionPtr[])() =
+	void (Harl::*fonctionPtr[4])() =
 	{
 		&Harl::debug,
 		&Harl::info,

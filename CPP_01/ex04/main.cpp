@@ -6,7 +6,7 @@
 /*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 16:42:30 by zakariyaham       #+#    #+#             */
-/*   Updated: 2023/07/22 14:57:32 by zhamdouc         ###   ########.fr       */
+/*   Updated: 2023/07/24 15:11:14 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,46 +47,8 @@ int main(int argc, char **argv)
 		std::cout << "you didn't put the right number of parameter\n";
 		return 1;
 	}
-	std::string line;
-	std::string file_name = argv[1];
-	file_name += ".replace";
-	std::ofstream file(file_name.c_str());
-	std::ifstream original(argv[1]);
-	size_t position = 0;
-	int	len_s1 = 0;
 
-	std::string s1 = argv[2];
-	std::string s2 = argv[3];
-
-	if (!s1.empty())
-		len_s1 = s1.length();
-
-	if (original.is_open())
-	{
-		while (std::getline(original, line))
-		{
-			while (1)
-			{
-				position = line.find(s1, position);
-				if (position != std::string::npos)
-				{
-					line.erase(position, len_s1);
-					line.insert(position, s2);
-					position = position + s2.length();
-				}
-				else
-				{
-					file << line << std::endl;
-					break ;
-				}
-			}
-		}
-		original.close();
-	}
-	else
-	{
-		std::cout << "Error during the openning of the file" << std::endl;
-		return 1;
-	}
-	return 0;
+	Sed sed(argv);
+	
+	return (sed.do_it(argv));
 }

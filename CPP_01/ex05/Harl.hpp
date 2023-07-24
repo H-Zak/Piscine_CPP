@@ -6,7 +6,7 @@
 /*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 17:53:59 by zhamdouc          #+#    #+#             */
-/*   Updated: 2023/07/22 15:58:27 by zhamdouc         ###   ########.fr       */
+/*   Updated: 2023/07/24 14:07:02 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ private :
 	void error( void );
 
 public :
-	Harl(){};
+	Harl();
 	void complain( std::string level );
-	~Harl(){};
+	~Harl();
 };
 
 #endif
