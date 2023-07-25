@@ -6,12 +6,10 @@
 /*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 16:42:30 by zakariyaham       #+#    #+#             */
-/*   Updated: 2023/07/24 15:11:14 by zhamdouc         ###   ########.fr       */
+/*   Updated: 2023/07/25 14:28:15 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fstream>
-#include <iostream>
 
 /*
 Les classes std::fstream, std::ifstream et std::ofstream sont toutes des classes de la bibliothèque <fstream> en C++ et sont utilisées pour travailler avec des fichiers. Voici les principales différences entre ces classes :
@@ -40,6 +38,8 @@ en matière de lecture ou d'écriture de fichiers.
 
 */
 
+#include "Sed.hpp"
+
 int main(int argc, char **argv)
 {
 	if (argc != 4 )
@@ -52,3 +52,4 @@ int main(int argc, char **argv)
 	
 	return (sed.do_it(argv));
 }
+
