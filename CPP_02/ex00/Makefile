@@ -20,7 +20,7 @@ OBJ_DIR			:=	obj
 # Source files
 SRCS			:=	$(wildcard $(SRC_DIR)/*.cpp)
 OBJS			:=	$(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SRCS))
-TARGET			:=	Harl
+TARGET			:=	fixed
 
 # Progress bar function
 define progress_bar
