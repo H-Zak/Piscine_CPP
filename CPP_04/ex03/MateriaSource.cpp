@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MateriaSource.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zakariyahamdouchi <zakariyahamdouchi@st    +#+  +:+       +#+        */
+/*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 23:24:36 by zakariyaham       #+#    #+#             */
-/*   Updated: 2023/07/19 02:13:12 by zakariyaham      ###   ########.fr       */
+/*   Updated: 2023/07/26 18:52:06 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ MateriaSource::MateriaSource() : IMateriaSource();
 {
 	std::cout << "default Constructor of MateriaSource is called\n";
 	for(int i = 0; i < 4; i++)
-		this->Materia[i] = nullptr;
+		this->Materia[i] = NULL;
 }
 
 MateriaSource::MateriaSource(const MateriaSource &other) : IMateriaSource(other)
@@ -39,7 +39,7 @@ MateriaSource & MateriaSource::operator=(const MateriaSource &other)
 			if (this->Materia[i])
 			{
 				delete this->Materia[i];
-				Materia[i] = nullptr;
+				Materia[i] = NULL;
 			}
 			if (other.Materia[i])
 				this->Materia[i] = other.Materia[i]->clone();
