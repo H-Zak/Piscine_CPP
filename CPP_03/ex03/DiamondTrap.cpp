@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zakariyahamdouchi <zakariyahamdouchi@st    +#+  +:+       +#+        */
+/*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 02:31:16 by zakariyaham       #+#    #+#             */
-/*   Updated: 2023/07/17 17:40:05 by zakariyaham      ###   ########.fr       */
+/*   Updated: 2023/07/26 16:23:16 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,20 @@ DiamondTrap & DiamondTrap::operator=(const DiamondTrap& other)
 	return *this;
 }
 
+void DiamondTrap::attack(const std::string &target)
+{
+	this->ScavTrap::attack(target);
+	return ;
+}
+
+void DiamondTrap:: whoAmI(void) 
+{
+	std::cout << std::endl;
+
+    std::cout << this->name << "  |  " << this->ClapTrap::name << std::endl;
+}
+
 DiamondTrap::~DiamondTrap()
 {
-	std::cout << "destructor of DiamondTrapp called\n";
-	// ClapTrap::~ClapTrap();
-	// FragTrap::~FragStrap();
-	// ScavTrap::~ScavTrap();
+	std::cout << "destructor of DiamondTrapp called for " << this->name << std::endl;
 }

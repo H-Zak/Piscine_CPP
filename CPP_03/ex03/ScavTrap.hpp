@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zakariyahamdouchi <zakariyahamdouchi@st    +#+  +:+       +#+        */
+/*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 19:27:25 by zakariyaham       #+#    #+#             */
-/*   Updated: 2023/07/11 02:01:12 by zakariyaham      ###   ########.fr       */
+/*   Updated: 2023/07/26 16:17:24 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ public:
 	ScavTrap(const ScavTrap& other);
 	ScavTrap& operator=(const ScavTrap &other);
 	void	attack(const std::string &target);
-	void	beRepaired(unsigned int amount);
 	void	guardGate();
 	~ScavTrap();
 };

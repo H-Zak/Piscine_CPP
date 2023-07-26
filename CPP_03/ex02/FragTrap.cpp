@@ -6,7 +6,7 @@
 /*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 22:42:33 by zakariyaham       #+#    #+#             */
-/*   Updated: 2023/07/25 16:55:25 by zhamdouc         ###   ########.fr       */
+/*   Updated: 2023/07/26 15:55:08 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void FragTrap::attack(const std::string& target)
 			this->energy_points = this->energy_points - 1;
 			std::cout << "FragTrap " << this->name << " attacks "<< target << ", causing 20 points of damage!\n";
 			std::cout << "FragTrap " << this->name << " Energy point : " << this->energy_points << " || Hit point :" << this->hit_point << std::endl;
-				}
+		}
 		else
 			std::cout << "FragTrap " << this->name << " Energy point : " << this->energy_points << " => you are out of energy\n";
 

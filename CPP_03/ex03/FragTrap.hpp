@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zakariyahamdouchi <zakariyahamdouchi@st    +#+  +:+       +#+        */
+/*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 22:42:31 by zakariyaham       #+#    #+#             */
-/*   Updated: 2023/07/11 02:01:08 by zakariyaham      ###   ########.fr       */
+/*   Updated: 2023/07/26 16:17:20 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ public :
 	FragTrap(const FragTrap& other);
 	FragTrap &operator=(const FragTrap& other);
 	void highFivesGuys(void);
-	void beRepaired(unsigned int amount);
 	void attack(const std::string& target);
 	~FragTrap();
 };
