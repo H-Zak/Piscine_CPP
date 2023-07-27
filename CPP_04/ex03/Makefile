@@ -3,15 +3,15 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: zakariyahamdouchi <zakariyahamdouchi@st    +#+  +:+       +#+         #
+#    By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/22 21:51:22 by zakariyaham       #+#    #+#              #
-#    Updated: 2023/07/22 21:51:33 by zakariyaham      ###   ########.fr        #
+#    Updated: 2023/07/27 15:40:33 by zhamdouc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC				:=	c++
-CPPFLAGS		:=	-Wall -Werror -Wextra -std=c++98 -MMD -MP
+CPPFLAGS		:=	-Wall -Werror -Wextra -std=c++98 -MMD -MP -g
 
 # Directories
 SRC_DIR			:=	.

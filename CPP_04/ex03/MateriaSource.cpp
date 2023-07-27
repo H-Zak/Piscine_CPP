@@ -6,7 +6,7 @@
 /*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 23:24:36 by zakariyaham       #+#    #+#             */
-/*   Updated: 2023/07/26 18:52:06 by zhamdouc         ###   ########.fr       */
+/*   Updated: 2023/07/27 15:36:31 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 #include "MateriaSource.hpp"
 #include "IMateriaSource.hpp"
 
-MateriaSource::MateriaSource() : IMateriaSource();
+MateriaSource::MateriaSource() : IMateriaSource()
 {
-	std::cout << "default Constructor of MateriaSource is called\n";
+	// std::cout << "default Constructor of MateriaSource is called\n";
 	for(int i = 0; i < 4; i++)
 		this->Materia[i] = NULL;
 }
 
-MateriaSource::MateriaSource(const MateriaSource &other) : IMateriaSource(other)
+MateriaSource::MateriaSource(const MateriaSource &other)  : IMateriaSource(other)
 {
-	std::cout << "copy Constructor of MateriaSource is called\n";
+	// std::cout << "copy Constructor of MateriaSource is called\n";
 	*this = other;
 	for(int i = 0; i < 4; i++)
 		this->Materia[i] = other.Materia[i]->clone();
@@ -31,7 +31,7 @@ MateriaSource::MateriaSource(const MateriaSource &other) : IMateriaSource(other)
 
 MateriaSource & MateriaSource::operator=(const MateriaSource &other)
 {
-	std::cout << "copy operator Constructor of MateriaSource is called\n";
+	// std::cout << "copy operator Constructor of MateriaSource is called\n";
 	if (this != &other)
 	{
 		for (int i = 0 ; i < 4; i++)
@@ -45,28 +45,26 @@ MateriaSource & MateriaSource::operator=(const MateriaSource &other)
 				this->Materia[i] = other.Materia[i]->clone();
 		}
 	}
-	*this = other;
 	return *this;
 }
 
-AMateria* MateriaSource::createMateria(std::string const & type);
+AMateria* MateriaSource::createMateria(std::string const & type)
 {
 	int i = 0;
-
-	if (this->Materia[i])
+	for ( ; i < 4 && this->Materia[i]; i++)
 	{
-		for ( ; i < 4 && this->Materia[i]; i++)
-
+		if (!this->Materia[i]->getType().compare(type))
+			return this->Materia[i]->clone();
 	}
-	if (i < 4)
+	return NULL;
 }
 
-void MateriaSource::learnMateria(AMateria* other);
+void MateriaSource::learnMateria(AMateria* other)
 {
 	int i = 0;
 	if (this->Materia[i])
 	{
-		for ( ; i < 4 && this->Materia[i]; i++)
+		for ( ; i < 4 && this->Materia[i]; i++);
 
 	}
 	if (i < 4)
@@ -76,7 +74,7 @@ void MateriaSource::learnMateria(AMateria* other);
 
 MateriaSource::~MateriaSource()
 {
-	std::cout << "Destructor of MateriaSource is called\n";
+	// std::cout << "Destructor of MateriaSource is called\n";
 	for (int i = 0 ; i < 4; i++)
-		delete this->inventory[i];
+		delete this->Materia[i];
 }

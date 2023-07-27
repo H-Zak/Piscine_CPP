@@ -6,7 +6,7 @@
 /*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 02:49:39 by zakariyaham       #+#    #+#             */
-/*   Updated: 2023/07/26 19:01:16 by zhamdouc         ###   ########.fr       */
+/*   Updated: 2023/07/27 14:10:16 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class AMateria;
 class ICharacter
 {
 public:
-	virtual ~ICharacter(void);
+	virtual ~ICharacter(void){};
 	virtual std::string const & getName() const = 0;
 	virtual void equip(AMateria* m) = 0;
 	virtual void unequip(int idx) = 0;

@@ -6,7 +6,7 @@
 /*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 18:08:43 by zhamdouc          #+#    #+#             */
-/*   Updated: 2023/07/26 18:08:50 by zhamdouc         ###   ########.fr       */
+/*   Updated: 2023/07/27 15:47:32 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ int main( void )
     AMateria* tmp;
 
     tmp = src->createMateria("ice");
-    // std::cout << RED << tmp->getType() << NC << std::endl;
+    // std::cout  << tmp->getType()  << std::endl;
     me->equip(tmp);
     tmp = src->createMateria("cure");
-    // std::cout << RED << tmp->getType() << NC << std::endl;
+    // std::cout << tmp->getType() << std::endl;
     me->equip(tmp);
     ICharacter* bob = new Character("bob");
     me->use(0, *bob);

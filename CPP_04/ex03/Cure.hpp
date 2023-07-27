@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zakariyahamdouchi <zakariyahamdouchi@st    +#+  +:+       +#+        */
+/*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 02:44:12 by zakariyaham       #+#    #+#             */
-/*   Updated: 2023/07/18 03:24:59 by zakariyaham      ###   ########.fr       */
+/*   Updated: 2023/07/27 15:40:02 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,10 @@
 #ifndef Cure_HPP
 # define Cure_HPP
 
+class ICharacter;
+
 class Cure : public AMateria
 {
-private :
 
 public :
 	Cure();
@@ -26,7 +27,7 @@ public :
 	Cure(const Cure &other);
 	Cure & operator=(const Cure &other);
 
-
+	void use(ICharacter& target);
 	AMateria* clone()const ;
 	virtual ~Cure();
 };
