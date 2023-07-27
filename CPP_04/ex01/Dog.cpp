@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zakariyahamdouchi <zakariyahamdouchi@st    +#+  +:+       +#+        */
+/*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 17:48:37 by zakariyaham       #+#    #+#             */
-/*   Updated: 2023/07/17 23:48:09 by zakariyaham      ###   ########.fr       */
+/*   Updated: 2023/07/27 17:10:58 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,13 @@
 Dog::Dog(): Animal()
 {
 	std::cout << "Dog default Constructor called " << std::endl;
-	this->type = "Dog";
+	this->Animal::type = "Dog";
 	this->brain = new Brain("Dog");
 }
 
 Dog::Dog(std::string type) : Animal(type)
 {
 	std::cout << "Dog type Constructor called " << std::endl;
-	this->type = type;
 	this->brain = new Brain("Dog");
 }
 
@@ -39,8 +38,8 @@ Dog & Dog::operator=(const Dog & other)
 	std::cout << "Contructor operator of Dog is called " << std::endl;
 	if (this != &other)
 	{
-		this->type = other.type;
-		this->brain = other.brain;
+		this->type = other.getType();
+		this->brain = other.getBrain();
 	}
 	return (*this);
 }
@@ -48,12 +47,6 @@ Dog & Dog::operator=(const Dog & other)
 void Dog::makeSound(void)const
 {
 	std::cout << "Woof\n";
-
-}
-
-std::string Dog::getType()const
-{
-	return this->type;
 }
 
 Brain* Dog::getBrain()const

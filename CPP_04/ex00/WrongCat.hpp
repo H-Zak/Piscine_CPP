@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zakariyahamdouchi <zakariyahamdouchi@st    +#+  +:+       +#+        */
+/*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 19:24:21 by zakariyaham       #+#    #+#             */
-/*   Updated: 2023/07/17 22:12:46 by zakariyaham      ###   ########.fr       */
+/*   Updated: 2023/07/27 17:08:15 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,7 @@
 
 class WrongCat : public WrongAnimal
 {
-protected :
-	std::string type;
+
 
 public:
 	WrongCat();
@@ -28,7 +27,6 @@ public:
 	WrongCat &operator=(const WrongCat &other);
 
 	void makeSound(void) const;
-	std::string getType(void)const;
 	~WrongCat();
 
 };

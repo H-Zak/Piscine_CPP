@@ -22,11 +22,12 @@ private :
 	std::string name;
 	int grade_exec;
 	int grade_sign;
+	std::string target;
 	bool Signed;
 
 public :
 	AForm();
-	AForm(std::string name, int grade_sign, int grade_exec);
+	AForm(std::string name, int grade_sign, int grade_exec, std::string target);
 	AForm(const AForm &other);
 	AForm &operator=(const AForm &other);
 	~AForm();

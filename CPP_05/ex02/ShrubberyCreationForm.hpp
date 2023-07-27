@@ -6,7 +6,7 @@
 /*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 17:51:26 by zhamdouc          #+#    #+#             */
-/*   Updated: 2023/07/22 18:18:36 by zhamdouc         ###   ########.fr       */
+/*   Updated: 2023/07/27 16:08:54 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # define SHRUBBERYCREATIONFROM_HPP
 
 #include "AForm.hpp"
+class AForm;
 
 class ShrubberyCreationForm : public AForm
 {

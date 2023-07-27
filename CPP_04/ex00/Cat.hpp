@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zakariyahamdouchi <zakariyahamdouchi@st    +#+  +:+       +#+        */
+/*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 16:47:33 by zakariyaham       #+#    #+#             */
-/*   Updated: 2023/07/17 22:10:57 by zakariyaham      ###   ########.fr       */
+/*   Updated: 2023/07/27 17:07:48 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ public :
 	Cat &operator = (const Cat& other );
 
 	virtual void makeSound(void)const;
-	std::string getType(void) const;
 	~Cat();
 
 };

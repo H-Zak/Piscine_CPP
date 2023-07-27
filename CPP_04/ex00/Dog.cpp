@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zakariyahamdouchi <zakariyahamdouchi@st    +#+  +:+       +#+        */
+/*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 17:48:37 by zakariyaham       #+#    #+#             */
-/*   Updated: 2023/07/17 22:51:52 by zakariyaham      ###   ########.fr       */
+/*   Updated: 2023/07/27 17:07:55 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,27 +17,25 @@
 Dog::Dog(): Animal()
 {
 	std::cout << "Dog default Constructor called " << std::endl;
-	this->type = "Dog";
+	this->Animal::type = "Dog";
 }
 
 Dog::Dog(std::string type) : Animal(type)
 {
 	std::cout << "Dog type Constructor called " << std::endl;
-	this->type = type;
 }
 
 Dog::Dog (const Dog &other)
 {
 	std::cout << "Dog copy Constructor called" << std::endl;
-	if (this != &other)
-		*this = other;
+	*this = other;
 }
 
 Dog & Dog::operator=(const Dog & other)
 {
 	std::cout << "Contructor operator of Dog is called " << std::endl;
 	if (this != &other)
-		this->type = other.type;
+		this->type = other.getType();
 	return (*this);
 }
 
@@ -45,11 +43,6 @@ void Dog::makeSound(void)const
 {
 	std::cout << "Woof\n";
 
-}
-
-std::string Dog::getType()const
-{
-	return this->type;
 }
 
 Dog::~Dog()

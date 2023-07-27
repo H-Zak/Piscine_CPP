@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zakariyahamdouchi <zakariyahamdouchi@st    +#+  +:+       +#+        */
+/*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 16:48:50 by zakariyaham       #+#    #+#             */
-/*   Updated: 2023/07/17 22:11:24 by zakariyaham      ###   ########.fr       */
+/*   Updated: 2023/07/27 17:07:58 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ public :
 	Dog &operator = (const Dog& other );
 
 	virtual void makeSound(void)const;
-	std::string getType(void)const;
 	~Dog();
 
 };

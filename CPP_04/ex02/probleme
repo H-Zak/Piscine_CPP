@@ -1,0 +1,3 @@
+verifier le fonctionnement de brain, et de getbrain (faut il renvoyer les 100, faut il faire un new)
+
+le fonctionnement d'une copie !! faut il qu'elle soit independant, si oui il ne faut donc jamais copier les pointeurs ???

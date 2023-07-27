@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zakariyahamdouchi <zakariyahamdouchi@st    +#+  +:+       +#+        */
+/*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 22:30:59 by zakariyaham       #+#    #+#             */
-/*   Updated: 2023/07/17 23:37:58 by zakariyaham      ###   ########.fr       */
+/*   Updated: 2023/07/27 17:09:15 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@
 
 class Brain
 {
-protected:
-
 public :
 	Brain();
 	Brain(std::string name);

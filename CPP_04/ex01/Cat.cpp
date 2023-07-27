@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zakariyahamdouchi <zakariyahamdouchi@st    +#+  +:+       +#+        */
+/*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 17:47:57 by zakariyaham       #+#    #+#             */
-/*   Updated: 2023/07/17 23:48:05 by zakariyaham      ###   ########.fr       */
+/*   Updated: 2023/07/27 17:10:51 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ Cat & Cat::operator=(const Cat & other)
 	std::cout << "Contructor operator of Cat is called " << std::endl;
 	if (this != &other)
 	{
-		this->type = other.type;
-		this->brain = other.brain;
+		this->type = other.getType();
+		this->brain = other.getBrain();
 	}
 	return (*this);
 }
@@ -48,11 +48,6 @@ void Cat::makeSound(void)const
 {
 	std::cout << "Meow\n";
 
-}
-
-std::string Cat::getType() const
-{
-	return this->type;
 }
 
 Brain* Cat::getBrain()const

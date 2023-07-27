@@ -15,12 +15,12 @@
 #include <fstream>
 
 
-AForm::AForm() : name("nobody"), grade_exec(1), grade_sign(1), Signed(false)
+AForm::AForm() : name("nobody"), grade_exec(1), grade_sign(1), Signed(false), target("default_target")
 {
 	std::cout << "AForm default Constructor called " << std::endl;
 }
 
-AForm::AForm(const std::string name, int grade_exec, int grade_sign) : name(name), grade_exec(grade_exec), grade_sign(grade_sign)
+AForm::AForm(const std::string name, int grade_exec, int grade_sign, std::string target) : target(target), name(name), grade_exec(grade_exec), grade_sign(grade_sign)
 {
 	this->Signed = false;
 	std::cout << "AForm type Constructor called " << std::endl;

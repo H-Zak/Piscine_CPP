@@ -6,7 +6,7 @@
 /*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 17:32:36 by zakariyaham       #+#    #+#             */
-/*   Updated: 2023/07/22 17:22:22 by zhamdouc         ###   ########.fr       */
+/*   Updated: 2023/07/27 16:35:29 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ Form::Form(const std::string name, int grade_exec, int grade_sign) : name(name),
 Form::Form (const Form &other) : name(other.name), grade_exec(other.grade_exec), grade_sign(other.grade_sign)
 {
 	std::cout << "Form copy Constructor called" << std::endl;
-	//*this = other;
+	*this = other;
 }
 
 Form &Form::operator=(const Form &other)

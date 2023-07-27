@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zakariyahamdouchi <zakariyahamdouchi@st    +#+  +:+       +#+        */
+/*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 17:52:10 by zhamdouc          #+#    #+#             */
-/*   Updated: 2023/07/17 22:11:11 by zakariyaham      ###   ########.fr       */
+/*   Updated: 2023/07/27 16:36:27 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,10 @@ Animal::Animal(std::string type)
 	this->type = type;
 }
 
-Animal::Animal (const Animal &other) : type(other.type)
+Animal::Animal (const Animal &other)
 {
 	std::cout << "Animal copy Constructor called" << std::endl;
+	*this = other;
 
 }
 

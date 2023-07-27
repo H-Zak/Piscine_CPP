@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zakariyahamdouchi <zakariyahamdouchi@st    +#+  +:+       +#+        */
+/*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 17:47:57 by zakariyaham       #+#    #+#             */
-/*   Updated: 2023/07/18 01:07:05 by zakariyaham      ###   ########.fr       */
+/*   Updated: 2023/07/27 17:12:05 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,6 @@ void Cat::makeSound(void)const
 {
 	std::cout << "Meow\n";
 
-}
-
-std::string Cat::getType() const
-{
-	return this->type;
 }
 
 Brain* Cat::getBrain()const
