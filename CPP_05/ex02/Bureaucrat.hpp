@@ -6,7 +6,7 @@
 /*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 02:25:08 by zakariyaham       #+#    #+#             */
-/*   Updated: 2023/07/22 18:05:21 by zhamdouc         ###   ########.fr       */
+/*   Updated: 2023/07/28 17:16:51 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ public :
 	int getGrade(void) const;
 	void lowerGrade(void);
 	void upGrade(void);
+	void executeForm(AForm const & form);
 };
 
 std::ostream	&operator<<(std::ostream &o, const Bureaucrat &src);

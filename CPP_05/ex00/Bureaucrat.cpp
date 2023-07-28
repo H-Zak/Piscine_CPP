@@ -6,7 +6,7 @@
 /*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 02:25:05 by zakariyaham       #+#    #+#             */
-/*   Updated: 2023/07/27 16:35:34 by zhamdouc         ###   ########.fr       */
+/*   Updated: 2023/07/28 15:50:58 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,9 @@ Bureaucrat::Bureaucrat(const std::string name, int grade) : name(name), grade(gr
 	return ;
 }
 
-Bureaucrat::Bureaucrat (const Bureaucrat &other) : name(other.name), grade(other.grade)
+Bureaucrat::Bureaucrat (const Bureaucrat &other) : name(other.getName()), grade(other.getGrade())
 {
 	std::cout << "Bureaucrat copy Constructor called" << std::endl;
-	*this = other;
 }
 
 Bureaucrat & Bureaucrat::operator=(const Bureaucrat & other)
@@ -40,7 +39,9 @@ Bureaucrat & Bureaucrat::operator=(const Bureaucrat & other)
 	std::cout << "Contructor operator of Bureaucrat is called " << std::endl;
 	//je peux pas changer son nom c'est un const
 	if (this != &other)
-		this->grade = other.grade;
+	{
+		this->grade = other.getGrade();
+	}
 	return (*this);
 }
 

@@ -42,12 +42,18 @@ public :
 	public:
 		virtual const char *what() const throw();
     };
-
+	class Formisnotsigned : public std::exception{
+		public :
+			virtual const char * what() const throw();
+	};
 	std::string getName(void) const;
 	virtual int getGradeSign(void) const = 0;
 	bool beSigned(const Bureaucrat & user);
 	int getGradeExec(void) const;
 	bool getSigned(void) const;
+	std::string AForm::getTarget(void) const;
+	void beExecuted(const Bureaucrat &other) const;
+	virtual void        execute( const Bureaucrat &executor ) const = 0;
 };
 
 std::ostream &operator<<(std::ostream &os, const AForm &src);

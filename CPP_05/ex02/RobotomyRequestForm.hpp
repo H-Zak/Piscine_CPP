@@ -6,7 +6,7 @@
 /*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 18:11:53 by zhamdouc          #+#    #+#             */
-/*   Updated: 2023/07/22 18:18:47 by zhamdouc         ###   ########.fr       */
+/*   Updated: 2023/07/28 18:48:45 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ public :
 	RobotomyRequestForm(const RobotomyRequestForm &other);
 	RobotomyRequestForm &operator=(const RobotomyRequestForm &other);
 	~RobotomyRequestForm();
-	
+	void execute(const Bureaucrat &other);
 };
 
 #endif

@@ -20,7 +20,7 @@ AForm::AForm() : name("nobody"), grade_exec(1), grade_sign(1), Signed(false), ta
 	std::cout << "AForm default Constructor called " << std::endl;
 }
 
-AForm::AForm(const std::string name, int grade_exec, int grade_sign, std::string target) : target(target), name(name), grade_exec(grade_exec), grade_sign(grade_sign)
+AForm::AForm(const std::string name, int grade_exec, int grade_sign, std::string target) :name(name), grade_exec(grade_exec), grade_sign(grade_sign), target(target)
 {
 	this->Signed = false;
 	std::cout << "AForm type Constructor called " << std::endl;
@@ -31,10 +31,10 @@ AForm::AForm(const std::string name, int grade_exec, int grade_sign, std::string
 	return ;
 }
 
-AForm::AForm (const AForm &other) : name(other.name), grade_exec(other.grade_exec), grade_sign(other.grade_sign)
+AForm::AForm (const AForm &other)
 {
 	std::cout << "AForm copy Constructor called" << std::endl;
-	//*this = other;
+	*this = other;
 }
 
 AForm &AForm::operator=(const AForm &other)
@@ -42,14 +42,19 @@ AForm &AForm::operator=(const AForm &other)
 	std::cout << "AForm copy operator Constructor called" << std::endl;
 	if (this != &other)
 	{
-		this->grade_exec = other.grade_exec;
-		this->grade_sign = other.grade_sign;
-		this->Signed = other.Signed;
-		this->name = other.name;
+		this->grade_exec = other.getGradeExec();
+		this->grade_sign = other.getGradeSign();
+		this->Signed = other.getSigned();
+		this->name = other.getName();
+		this->target = other.getTarget();
 	}
 	return (*this);
 }
 
+std::string AForm::getTarget(void) const
+{
+	return this->target;
+}
 
 std::string AForm::getName(void) const
 {
@@ -95,11 +100,24 @@ const char *AForm::GradeTooLowException::what() const throw(){
     return ("Grade is too low !\n");
 }
 
+const char *AForm::Formisnotsigned::what() const throw()
+{
+
+    return ("Form is not signed !");
+}
+
 std::ostream &operator<<(std::ostream &os, const AForm &src)
 {
 	os << "name of the AForm " << src.getName() << " the grade you need to sign " << src.getGradeSign();
 	os << " the grade you need to excecute " << src.getGradeExec() << " is this AForm sign ? " << src.getSigned() << std::endl;
 	return os;
+}
+void AForm::beExecuted(const Bureaucrat &other) const
+{
+	if (!this->getSigned())
+		throw AForm::Formisnotsigned();
+	if (other.getGrade() > this->getGradeExec())
+		throw AForm::GradeTooLowException();
 }
 
 AForm::~AForm()

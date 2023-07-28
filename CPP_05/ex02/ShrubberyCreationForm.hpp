@@ -6,7 +6,7 @@
 /*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 17:51:26 by zhamdouc          #+#    #+#             */
-/*   Updated: 2023/07/27 16:08:54 by zhamdouc         ###   ########.fr       */
+/*   Updated: 2023/07/28 18:06:57 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ public :
 	ShrubberyCreationForm &operator=(const ShrubberyCreationForm &other);
 	~ShrubberyCreationForm();
 	
+	void execute(const Bureaucrat &other);
 };
 
 #endif
