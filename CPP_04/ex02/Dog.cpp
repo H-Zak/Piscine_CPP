@@ -6,13 +6,11 @@
 /*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 17:48:37 by zakariyaham       #+#    #+#             */
-/*   Updated: 2023/07/27 17:19:16 by zhamdouc         ###   ########.fr       */
+/*   Updated: 2023/07/28 15:21:29 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include "Dog.hpp"
-#include "AAnimal.hpp"
 
 Dog::Dog(): AAnimal()
 {
@@ -38,8 +36,10 @@ Dog & Dog::operator=(const Dog & other)
 	std::cout << "Contructor operator of Dog is called " << std::endl;
 	if (this != &other)
 	{
-		this->type = other.type;
-		this->brain = new Brain (other.brain);
+		this->type = other.getType();
+		if (brain)
+			delete brain;
+		this->brain = new Brain(*other.getBrain());
 	}
 	return (*this);
 }

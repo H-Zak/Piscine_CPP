@@ -3,17 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zakariyahamdouchi <zakariyahamdouchi@st    +#+  +:+       +#+        */
+/*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 16:45:10 by zakariyaham       #+#    #+#             */
-/*   Updated: 2023/07/17 22:11:06 by zakariyaham      ###   ########.fr       */
+/*   Updated: 2023/07/28 13:44:03 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 
 #ifndef ANIMAL_HPP
 # define ANIMAL_HPP
+
+#include <iostream>
 
 class Animal
 {

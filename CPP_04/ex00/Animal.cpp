@@ -6,17 +6,16 @@
 /*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 17:52:10 by zhamdouc          #+#    #+#             */
-/*   Updated: 2023/07/27 16:36:27 by zhamdouc         ###   ########.fr       */
+/*   Updated: 2023/07/28 14:08:09 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include "Animal.hpp"
 
 Animal::Animal()
 {
 	std::cout << "Animal default Constructor called " << std::endl;
-	this->type = " ";
+	this->type = "";
 }
 
 Animal::Animal(std::string type)
@@ -36,7 +35,7 @@ Animal & Animal::operator=(const Animal & other)
 {
 	std::cout << "Contructor operator of animal is called " << std::endl;
 	if (this != &other)
-		this->type = other.type;
+		this->type = other.getType();
 	return (*this);
 }
 

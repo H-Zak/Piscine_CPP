@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zakariyahamdouchi <zakariyahamdouchi@st    +#+  +:+       +#+        */
+/*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 16:49:41 by zakariyaham       #+#    #+#             */
-/*   Updated: 2023/07/17 23:43:26 by zakariyaham      ###   ########.fr       */
+/*   Updated: 2023/07/28 15:20:16 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,19 +43,8 @@ int main() {
 	brain->ideas[1] = "other test";
 	std::cout << animals[0]->getType() << ": " << animals[0]->getBrain()->ideas[0] << std::endl;
 	std::cout << animals[0]->getType() << ": " << animals[0]->getBrain()->ideas[1] << std::endl;
-	*(animals[1]) = *(animals[0]);
-	std::cout << animals[1]->getType() << ": " << animals[1]->getBrain()->ideas[0] << std::endl;
-	std::cout << animals[1]->getType() << ": " << animals[1]->getBrain()->ideas[1] << std::endl;
 
-    // Animal Dog(animals[0]);
-    // Animal test = Dog(animals[0]);
-    // std::cout << test.getBrain[0] << std::endl;
     for (int j = 0; j < 5; j++)
         delete animals[j];
     return 0;
-
-    // Dog basic;
-    // {
-    //     Dog tmp = basic;
-    // }
 }

@@ -6,13 +6,11 @@
 /*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 17:48:37 by zakariyaham       #+#    #+#             */
-/*   Updated: 2023/07/27 17:07:55 by zhamdouc         ###   ########.fr       */
+/*   Updated: 2023/07/28 13:46:59 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include "Dog.hpp"
-#include "Animal.hpp"
 
 Dog::Dog(): Animal()
 {

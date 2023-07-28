@@ -6,15 +6,14 @@
 /*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 19:24:21 by zakariyaham       #+#    #+#             */
-/*   Updated: 2023/07/27 17:08:15 by zhamdouc         ###   ########.fr       */
+/*   Updated: 2023/07/28 13:49:38 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "WrongAnimal.hpp"
-
 #ifndef WRONGCat_HPP
-#define WRONGCat_HPP
+# define WRONGCat_HPP
+
+#include "WrongAnimal.hpp"
 
 class WrongCat : public WrongAnimal
 {

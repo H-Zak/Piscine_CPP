@@ -6,13 +6,11 @@
 /*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 17:47:57 by zakariyaham       #+#    #+#             */
-/*   Updated: 2023/07/27 17:12:05 by zhamdouc         ###   ########.fr       */
+/*   Updated: 2023/07/28 15:21:07 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include "Cat.hpp"
-#include "AAnimal.hpp"
 
 Cat::Cat(void) : AAnimal()
 {
@@ -38,8 +36,10 @@ Cat & Cat::operator=(const Cat & other)
 	std::cout << "Contructor operator of Cat is called " << std::endl;
 	if (this != &other)
 	{
-		this->type = other.type;
-		this->brain = other.brain;
+		this->type = other.getType();
+		if (brain)
+			delete brain;
+		this->brain = new Brain(*other.getBrain());
 	}
 	return (*this);
 }

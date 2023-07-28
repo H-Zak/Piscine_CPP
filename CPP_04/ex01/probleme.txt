@@ -1,8 +1,0 @@
-pourquoi faire ca :
-Cat::Cat( Cat const &other ) {
-
-	std::cout << "Cat copy constructor called" << NC << std::endl;
-    this->_brain = new Brain();
-	*(this->_brain) = *(other.getBrain());
-}
-normalement dans other il y a deja un brain

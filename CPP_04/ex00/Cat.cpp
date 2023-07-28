@@ -6,13 +6,11 @@
 /*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 17:47:57 by zakariyaham       #+#    #+#             */
-/*   Updated: 2023/07/27 17:07:29 by zhamdouc         ###   ########.fr       */
+/*   Updated: 2023/07/28 13:45:00 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include "Cat.hpp"
-#include "Animal.hpp"
 
 Cat::Cat(void) : Animal()
 {

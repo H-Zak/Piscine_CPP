@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zakariyahamdouchi <zakariyahamdouchi@st    +#+  +:+       +#+        */
+/*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 20:28:07 by zakariyaham       #+#    #+#             */
-/*   Updated: 2023/07/17 22:13:03 by zakariyaham      ###   ########.fr       */
+/*   Updated: 2023/07/28 14:10:27 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 WrongAnimal::WrongAnimal()
 {
 	std::cout << "default Contructor of WrongAnimal\n";
+	this->type = "";
 }
 
 WrongAnimal::WrongAnimal(std::string type)
@@ -33,7 +34,7 @@ WrongAnimal & WrongAnimal::operator=(const WrongAnimal &other)
 {
 	std::cout << "operator copy Contructor of WrongAnimal\n";
 	if (this != &other)
-		this->type = other.type;
+		this->type = other.getType();
 	return *this;
 }
 

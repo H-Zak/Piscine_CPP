@@ -3,17 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zakariyahamdouchi <zakariyahamdouchi@st    +#+  +:+       +#+        */
+/*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 20:17:53 by zakariyaham       #+#    #+#             */
-/*   Updated: 2023/07/17 22:12:58 by zakariyaham      ###   ########.fr       */
+/*   Updated: 2023/07/28 14:13:28 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 
 #ifndef WRONGANIMAL_HPP
-#define WRONGANIMAL_HPP
+# define WRONGANIMAL_HPP
+
+#include <iostream>
 
 class WrongAnimal
 {

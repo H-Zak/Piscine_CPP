@@ -6,7 +6,7 @@
 /*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 20:45:12 by zakariyaham       #+#    #+#             */
-/*   Updated: 2023/07/27 17:08:39 by zhamdouc         ###   ########.fr       */
+/*   Updated: 2023/07/28 13:49:55 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 WrongCat::WrongCat() : WrongAnimal()
 {
 	std::cout << "default Contructor of WrongCat\n";
-	this->WrongAnimal::type = "WrongCat"
+	this->WrongAnimal::type = "WrongCat";
 }
 
 WrongCat::WrongCat(std::string type) : WrongAnimal(type)

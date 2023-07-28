@@ -3,18 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zakariyahamdouchi <zakariyahamdouchi@st    +#+  +:+       +#+        */
+/*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 16:45:10 by zakariyaham       #+#    #+#             */
-/*   Updated: 2023/07/17 23:45:08 by zakariyaham      ###   ########.fr       */
+/*   Updated: 2023/07/28 14:02:30 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "Brain.hpp"
 
 #ifndef ANIMAL_HPP
 # define ANIMAL_HPP
+
+#include <iostream>
+#include "Brain.hpp"
 
 class Animal
 {

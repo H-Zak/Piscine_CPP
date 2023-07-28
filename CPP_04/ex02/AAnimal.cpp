@@ -10,13 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include "AAnimal.hpp"
 
 AAnimal::AAnimal()
 {
 	std::cout << "AAnimal default Constructor called " << std::endl;
-	this->type = " ";
+	this->type = "";
 }
 
 AAnimal::AAnimal(std::string type)
@@ -25,9 +24,10 @@ AAnimal::AAnimal(std::string type)
 	this->type = type;
 }
 
-AAnimal::AAnimal (const AAnimal &other) : type(other.type)
+AAnimal::AAnimal (const AAnimal &other)
 {
 	std::cout << "AAnimal copy Constructor called" << std::endl;
+	*this = other;
 
 }
 
@@ -35,7 +35,7 @@ AAnimal & AAnimal::operator=(const AAnimal & other)
 {
 	std::cout << "Contructor operator of AAnimal is called " << std::endl;
 	if (this != &other)
-		this->type = other.type;
+		this->type = other.getType();
 	return (*this);
 }
 

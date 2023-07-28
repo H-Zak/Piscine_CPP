@@ -6,13 +6,11 @@
 /*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 17:48:37 by zakariyaham       #+#    #+#             */
-/*   Updated: 2023/07/27 17:10:58 by zhamdouc         ###   ########.fr       */
+/*   Updated: 2023/07/28 15:10:47 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include "Dog.hpp"
-#include "Animal.hpp"
 
 Dog::Dog(): Animal()
 {
@@ -39,7 +37,9 @@ Dog & Dog::operator=(const Dog & other)
 	if (this != &other)
 	{
 		this->type = other.getType();
-		this->brain = other.getBrain();
+		if (brain)
+			delete brain;
+		this->brain = new Brain(*other.getBrain());
 	}
 	return (*this);
 }

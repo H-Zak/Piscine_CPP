@@ -10,11 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "Brain.hpp"
 
 #ifndef AAnimal_HPP
 # define AAnimal_HPP
+
+#include <iostream>
+#include "Brain.hpp"
 
 class AAnimal
 {
