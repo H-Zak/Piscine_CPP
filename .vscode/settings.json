@@ -75,6 +75,7 @@
 		"ratio": "cpp",
 		"stack": "cpp",
 		"variant": "cpp",
-		"__verbose_abort": "cpp"
+		"__verbose_abort": "cpp",
+		"*.tpp": "cpp"
 	}
 }
