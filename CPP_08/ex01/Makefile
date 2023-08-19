@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: zakariyahamdouchi <zakariyahamdouchi@st    +#+  +:+       +#+         #
+#    By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/15 16:14:02 by zakariyaham       #+#    #+#              #
-#    Updated: 2023/08/15 16:14:03 by zakariyaham      ###   ########.fr        #
+#    Updated: 2023/08/19 19:15:45 by zhamdouc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ OBJ_DIR			:=	obj
 # Source files
 SRCS			:=	$(wildcard $(SRC_DIR)/*.cpp)
 OBJS			:=	$(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SRCS))
-TARGET			:=	bureaucrat
+TARGET			:=	Span
 
 # Progress bar function
 define progress_bar

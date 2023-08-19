@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Base.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zakariyahamdouchi <zakariyahamdouchi@st    +#+  +:+       +#+        */
+/*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 16:06:49 by zakariyaham       #+#    #+#             */
-/*   Updated: 2023/08/15 16:08:43 by zakariyaham      ###   ########.fr       */
+/*   Updated: 2023/08/16 18:55:11 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <string>
 #include <iomanip>
 #include <cstdlib>
-// #include <math.h>
+
 
 
 class Base {

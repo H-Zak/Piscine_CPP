@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: zakariyahamdouchi <zakariyahamdouchi@st    +#+  +:+       +#+         #
+#    By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/22 21:40:43 by zakariyaham       #+#    #+#              #
-#    Updated: 2023/07/22 21:40:44 by zakariyaham      ###   ########.fr        #
+#    Updated: 2023/08/16 15:49:57 by zhamdouc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME 			= Animal
+NAME 			= Bureaucrat
 
 CC 				= c++
 CFLAGS			= -Wall -Wextra -Werror

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zakariyahamdouchi <zakariyahamdouchi@st    +#+  +:+       +#+        */
+/*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 16:34:45 by zakariyaham       #+#    #+#             */
-/*   Updated: 2023/08/15 16:34:46 by zakariyaham      ###   ########.fr       */
+/*   Updated: 2023/08/19 18:39:49 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int main()
         v1.push_back(40);
         v1.push_back(50);
 
-        ::easyfind(v1, 20);
+        ::easyfind(v1, 50);
 
     } catch (std::exception &e) {
         std::cout << e.what() << std::endl;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zakariyahamdouchi <zakariyahamdouchi@st    +#+  +:+       +#+        */
+/*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 16:36:52 by zakariyaham       #+#    #+#             */
-/*   Updated: 2023/08/15 16:40:46 by zakariyaham      ###   ########.fr       */
+/*   Updated: 2023/08/19 18:47:09 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ Span::~Span(void)
 
 Span & Span::operator=(const Span &ref)
 {
-	_max_size = ref._max_size;
-	_list = ref._list;
+	_max_size = ref._max_size;//rajouter un get_maxsize
+	_list = ref.getList();
 	return *this;
 }
 

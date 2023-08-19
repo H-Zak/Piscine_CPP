@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Convert.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zakariyahamdouchi <zakariyahamdouchi@st    +#+  +:+       +#+        */
+/*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 17:58:17 by zakariyaham       #+#    #+#             */
-/*   Updated: 2023/08/15 19:58:41 by zakariyaham      ###   ########.fr       */
+/*   Updated: 2023/08/16 19:00:17 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ Convert::Convert( void )
 Convert::Convert( char *av )
 {
     // std::cout << "Convert default constructor called" << std::endl;
-    //convert string to double
     this->_nb = atof(av);
     return ;
 }
@@ -59,7 +58,7 @@ void    Convert::convertChar() const {
 }
 
 void    Convert::convertInt() const {
-    if (!std::isfinite(_nb) || _nb < INT_MIN || _nb > INT_MAX)
+    if (std::isfinite(_nb) && _nb > INT_MIN && _nb < INT_MAX)
         std::cout << "int: " << static_cast<int>(this->_nb) << std::endl;
     else
         std::cout << "int: impossible" << std::endl;

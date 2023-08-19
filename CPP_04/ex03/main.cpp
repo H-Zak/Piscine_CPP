@@ -6,7 +6,7 @@
 /*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 18:08:43 by zhamdouc          #+#    #+#             */
-/*   Updated: 2023/07/27 15:47:32 by zhamdouc         ###   ########.fr       */
+/*   Updated: 2023/08/16 15:37:25 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ int main( void )
     me->equip(tmp);
     ICharacter* bob = new Character("bob");
     me->use(0, *bob);
+	me->unequip(1);
     me->use(1, *bob);
     
     delete bob;
