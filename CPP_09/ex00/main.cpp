@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zheylkoss <zheylkoss@student.42.fr>        +#+  +:+       +#+        */
+/*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 18:46:06 by zhamdouc          #+#    #+#             */
-/*   Updated: 2023/08/22 00:11:00 by zheylkoss        ###   ########.fr       */
+/*   Updated: 2023/08/22 13:09:55 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int main(int argc, char **argv)
     {
         BitcoinExchange btc(filename);
 
-        btc.calcul();
+        btc.calcul(filename);
         
     }
     catch(const std::exception& e)
