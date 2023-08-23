@@ -6,12 +6,12 @@
 #    By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/15 16:14:02 by zakariyaham       #+#    #+#              #
-#    Updated: 2023/08/20 18:46:32 by zhamdouc         ###   ########.fr        #
+#    Updated: 2023/08/23 17:48:12 by zhamdouc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC				:=	c++
-CPPFLAGS		:=	-Wall -Werror -Wextra -std=c++98 -MMD -MP
+CPPFLAGS		:=	-Wall -Werror -Wextra -std=c++98 -MMD -MP -g
 
 # Directories
 SRC_DIR			:=	.

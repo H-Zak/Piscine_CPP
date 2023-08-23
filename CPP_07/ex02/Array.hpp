@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Array.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zakariyahamdouchi <zakariyahamdouchi@st    +#+  +:+       +#+        */
+/*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 16:27:39 by zakariyaham       #+#    #+#             */
-/*   Updated: 2023/08/16 01:28:22 by zakariyaham      ###   ########.fr       */
+/*   Updated: 2023/08/23 18:55:27 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,14 @@ template<typename T>
 class	Array {
 
 	public:
-		Array( void ) {
+		Array( ) {
 
 			std::cout << GREEN "Default constructor called." END << std::endl;
 			this->_array = NULL;
-			this->_n = 0;
+			this->_size = 0;
 			return;
 		}
-		Array( unsigned int n ) : _n(n) {
+		Array( unsigned int n ) : _size(n) {
 
 			std::cout << GREEN "Parametric constructor called." END << std::endl;
 			this->_array = new T[n];
@@ -47,15 +47,15 @@ class	Array {
 		}
 		Array( Array & src ) {
 
-			*this = ref;
+			*this = src;
 		}
 
-		Array & operator=(const Array &ref)
+		Array & operator=(const Array &src)
 		{
-			_size = ref.size();
+			_size = src.size();
 			_array = new T[_size];
-			for (int i = 0; i < ref.size(); i++)
-				_array[i] = ref._array[i];
+			for (unsigned int i = 0; i < src.size(); i++)
+				_array[i] = src._array[i];
 			return *this;
 		}
 
@@ -67,10 +67,10 @@ class	Array {
 			return ;
 		}
 
-		unsigned int size( void ) {
+		unsigned int size( void ) const {
 
-			std::cout << CYAN "Size function called." END << std::endl;
-			unsigned int i = this->_n;
+			//std::cout << CYAN "Size function called." END << std::endl;
+			unsigned int i = this->_size;
 
 			// for (i = 0; array[i] != '\0'; i++)
 			// 	;
@@ -82,7 +82,7 @@ class	Array {
 		T	&operator[]( unsigned int i ) {
 
 			// std::cout << CYAN "Operator [] called." END << std::endl;
-			if (!_array || i < 0 || i >= this->_n)
+			if (!_array || i < 0 || i >= this->_size)
 				throw Array::InvalidIndexException();
 			return(this->_array[i]);
 		}
@@ -96,7 +96,7 @@ class	Array {
 
 	private:
 		T	*_array;
-		unsigned int	_n;
+		unsigned int	_size;
 };
 
 #endif
