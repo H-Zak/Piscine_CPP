@@ -6,7 +6,7 @@
 /*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 22:50:12 by zheylkoss         #+#    #+#             */
-/*   Updated: 2023/08/23 19:42:30 by zhamdouc         ###   ########.fr       */
+/*   Updated: 2023/08/24 17:30:25 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,14 +70,46 @@ void month(std::string line)
 		throw(std::range_error("Error database: wrong month"));
 }
 
+bool IsLeap (int year) {
+ 
+ bool isLeap;
+    if (year % 4 == 0) {
+        if (year % 100 == 0) {
+            if (year % 400 == 0)
+              isLeap = true;
+            else
+               isLeap = false;
+        }
+        else
+           isLeap = true;
+    }
+    else
+    	isLeap= false;
+    return isLeap;
+}
+
 void day(std::string line)
 {
 	int day;
-	int daysInMonth[] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+	int year = atoi(line.substr(0,4).c_str());
 	int month;
+	int daysInMonth[13];
+	if (IsLeap(year))
+	{
+		// Initialize for leap year
+		int leapYearDays[] = {0, 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+		std::copy(leapYearDays, leapYearDays + 13, daysInMonth);
+	} 
+	else 
+	{
+		// Initialize for non-leap year
+		int nonLeapYearDays[] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+		std::copy(nonLeapYearDays, nonLeapYearDays + 13, daysInMonth);
+	}
 
 	month = atoi(line.substr(5,7).c_str());
 	day = atoi(line.substr(8,10).c_str());
+
 	if (month >= 1 && month <= 12)
     {
         // Check if the day is within the valid range for the given month
@@ -147,6 +179,37 @@ void parsing_value(std::string line, size_t *i, size_t *j)
 	}
 }
 
+void parsing_value_input(std::string line, size_t *i, size_t *j)
+{
+	
+	for (; (*i) < line.length(); (*i)++)
+	{
+		if ((*j) == 0 && !std::isdigit(line[(*i)]))
+			std::cerr << "Error 1: value databse incorrect2";
+		if ((*j) == 0 && std::isdigit(line[(*i)]))
+		{
+			(*j)++;
+			(*i)++;
+		}
+
+		if ((*i) < line.length() && line[(*i)] == '.' && (*j) != 2)
+		{
+			(*j) = 2;
+			(*i)++;
+			if ((*i) >= line.length())
+				std::cerr << "Error 2 : value database incorrect";
+			//std::cout << (*j) << line[i] << i << std::endl;
+		}
+		if ((*i) < line.length() && line[(*i)] == '.' && (*j) == 2)
+		{
+			//std::cout << (*j) << line[i] << i << std::endl;
+			std::cerr << "Error 3: value database incorrect" + line;
+		}
+		if((*i) < line.length() && !std::isdigit(line[(*i)]))
+			std::cerr << "Error 4 : database incorrect";
+	}
+}
+
 void BitcoinExchange::parsefile(std::string filename)
 {
     std::ifstream file(filename.c_str());
@@ -172,7 +235,7 @@ void BitcoinExchange::parsefile(std::string filename)
 			throw(std::range_error("Error : database not complete"));
 		parsing_date(line, &i);
 		if(i == 10 && line[i] != ',')
-			throw(std::range_error("Error : sepr database incorrect"));
+			throw(std::range_error("Error : separator database incorrect"));
 		else
 			i++;
 		parsing_value(line, &i, &j);
@@ -187,6 +250,40 @@ void BitcoinExchange::parsefile(std::string filename)
 
 void BitcoinExchange::calcul (std::string filename)
 {
-	std::cout << filename;
-	
+	//verifier que la date est apres la creation du bitcoin
+	//verifier que la date existe
+	//verifier que la valeur est compris entre 0 et 1000
+	//2 valeur separer par 
+	 std::ifstream file(filename.c_str());
+	 size_t i = 0;
+	 size_t j = 0;
+	 size_t nb_line = 0;
+
+    if (!file.is_open()) {
+        throw(std::runtime_error("Error: couldn't open the file"));
+    }
+
+    std::string line;
+    if (std::getline(file, line)) {
+        if (line.compare("date | value") != 0) {
+            throw(std::runtime_error("Error: incorrect first line of test"));
+        }
+    } else {
+        throw(std::runtime_error("Error: file is empty"));
+    }
+	while(std::getline(file, line))
+	{
+		if (line.length() < 12)
+			throw(std::range_error("Error : input not complete"));
+		parsing_date(line, &i);
+		if(i == 10 && line[i] != ' ' && line[i + 1] != '|' && line[i + 2] != ' ')
+			throw(std::range_error("Error : separator input incorrect"));
+		else
+			i = i + 3;
+		parsing_value_input(line, &i, &j);
+		i = 0;
+		j = 0;
+		nb_line++;
+		//std::cout << nb_line <<std::endl;
+    }
 }
