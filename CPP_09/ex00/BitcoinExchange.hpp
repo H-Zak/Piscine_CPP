@@ -6,7 +6,7 @@
 /*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 21:09:05 by zheylkoss         #+#    #+#             */
-/*   Updated: 2023/08/23 19:26:47 by zhamdouc         ###   ########.fr       */
+/*   Updated: 2023/08/25 17:01:50 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,10 @@ public :
     BitcoinExchange(std::string file);
     ~BitcoinExchange();
     std::map<std::string, std::string> get_data_base() const;
+	typedef std::map<std::string, std::string>::iterator iterator;
     void calcul (std::string filename);
     void parsefile(std::string filename);
-    
+    void check_value(std::string line);
     
     
 };
