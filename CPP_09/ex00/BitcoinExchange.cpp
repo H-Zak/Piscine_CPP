@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zakariyahamdouchi <zakariyahamdouchi@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 22:50:12 by zheylkoss         #+#    #+#             */
-/*   Updated: 2023/08/26 18:48:41 by zhamdouc         ###   ########.fr       */
+/*   Updated: 2023/08/28 01:04:17 by zakariyaham      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ BitcoinExchange::BitcoinExchange(BitcoinExchange const &other)
 {
     *this = other;
     return ;
-    
+
 }
 
 BitcoinExchange &BitcoinExchange::operator=(BitcoinExchange const &other)
@@ -29,7 +29,7 @@ BitcoinExchange &BitcoinExchange::operator=(BitcoinExchange const &other)
     if (this != &other)
     {
         this->data_base = other.get_data_base();
-        
+
     }
     return (*this);
 }
@@ -45,22 +45,21 @@ BitcoinExchange::~BitcoinExchange(void)
 }
 
 
-std::map<std::string , std::string > BitcoinExchange::get_data_base(void) const 
+std::map<std::string , std::string > BitcoinExchange::get_data_base(void) const
 {
     return (this->data_base);
 }
 
 
 
-void parsing_value_input(std::string line, size_t *i, size_t *j)
+void parsing_value_input(std::string line, size_t *i, size_t *j, int &error)
 {
-	int error = 0;
 	for (; (*i) < line.length(); (*i)++)
 	{
 		if ((*j) == 0 && !std::isdigit(line[(*i)]))
 		{
-			std::cerr << "Error 1: value databse incorrect" << line << std::endl;
-			error = 1;
+			std::cerr << "Error 1: value input file incorrect" << std::endl;
+			error = 2;
 		}
 		if ((*j) == 0 && std::isdigit(line[(*i)]))
 		{
@@ -75,24 +74,22 @@ void parsing_value_input(std::string line, size_t *i, size_t *j)
 			if ((*i) >= line.length() && error != 0)
 			{
 				std::cerr << "Error 2 : value database incorrect" << line << std::endl;
-				error = 1;
+				error = 2;
 			}
 			//std::cout << (*j) << line[i] << i << std::endl;
 		}
-		if (error != 0 && (*i) < line.length() && line[(*i)] == '.' && (*j) == 2)
+		if (error != 2 && (*i) < line.length() && line[(*i)] == '.' && (*j) == 2)
 		{
 			//std::cout << (*j) << line[i] << i << std::endl;
 			std::cerr << "Error 3: value database incorrect" << line << std::endl;
-			error = 1;
+			error = 2;
 		}
-		if(error != 0 && (*i) < line.length() && !std::isdigit(line[(*i)]))
+		if(error != 2 && (*i) < line.length() && !std::isdigit(line[(*i)]))
 		{
 			std::cerr << "Error 4 : database incorrect" /* << line  */<< std::endl;
-			error = 1;
+			error = 2;
 		}
-		if (error == 0)
-			std::cout << line.substr(0, 9) << "->";
-		error = 0;
+
 	}
 }
 
@@ -104,8 +101,9 @@ void BitcoinExchange::parsefile(std::string filename)
 	std::string parse;
 	size_t  j = 0;
 	size_t i = 0;
-	int nb_line = 2;
-	//int which_line; a increment dans for pour savoir quelle ligne a un probleme 
+	//int nb_line = 2;
+	int error = 0;
+	//int which_line; a increment dans for pour savoir quelle ligne a un probleme
 	//jour et mois ne peuvent pas etre egale a 0;
 
 	if(!file.is_open())
@@ -119,7 +117,7 @@ void BitcoinExchange::parsefile(std::string filename)
 	{
 		if (line.length() < 12)
 			throw(std::range_error("Error : database not complete"));
-		parsing_date(line, &i, 0);
+		parsing_date(line, &i, error);
 		if(i == 10 && line[i] != ',')
 			throw(std::range_error("Error : separator database incorrect"));
 		else
@@ -128,7 +126,9 @@ void BitcoinExchange::parsefile(std::string filename)
 		i = 0;
 		j = 0;
 		this->data_base.insert(std::make_pair(line.substr(0, 9), line.substr(11)));
-		nb_line++;
+		//nb_line++;
+		//std::cerr << error << std::endl;
+		error = 0;
 		//std::cout << nb_line <<std::endl;
     }
 	// if (!data_base.empty())// a quoi ca sert ?
@@ -139,18 +139,21 @@ void BitcoinExchange::parsefile(std::string filename)
 	file.close();
 }
 
-void	BitcoinExchange::check_value(std::string line)
+void	BitcoinExchange::check_value(std::string line, int &error)
 {
 	// std::cout << "valeur rate :" << line.substr(13) << std::endl;
 	double number = atof(line.substr(13).c_str());
 	if (number < 0 || number > 1000)
 	{
 		std::cerr << "Wrong value\n";
+		error = 2;
+		return ;
 	}
-	if(this->data_base.find(line.substr(0, 9)) != this->data_base.end())
+	if(error != 2 && this->data_base.find(line.substr(0, 9)) != this->data_base.end())
 	{
 		number =  number * atof(data_base[line.substr(0, 9)].c_str());
 		std::cout << number << std::endl;
+		error = 2;
 	}
 	else
 	{
@@ -163,6 +166,7 @@ void	BitcoinExchange::check_value(std::string line)
 		else
 		{
 			std::cerr << "No date found" << std::endl;
+			error = 2;
 		}
 	}
 }
@@ -192,15 +196,26 @@ void BitcoinExchange::parse_input_file(std::string filename)//attention a l'ecri
 		if (line.length() < 12)
 		{
 			std::cerr << "Error : input not complete\n";
-			error = 1;
+			error = 2;
 		}
-		parsing_date(line, &i, error);
-		if(i == 10 && line[i] != ' ' && line[i + 1] != '|' && line[i + 2] != ' ')
+		if (error != 2)
+			parsing_date(line, &i, error);
+		if(error != 2 && i == 10 && line[i] != ' ' && line[i + 1] != '|' && line[i + 2] != ' ')
+		{
 			std::cerr<< "Error : separator input incorrect\n";
+			error = 2;
+		}
 		else
 			i = i + 3;
-		parsing_value_input(line, &i, &j);
-		check_value(line);
+		if (error != 2)
+			parsing_value_input(line, &i, &j, error);
+		if (error == 1)
+			std::cout << line.substr(0, 9) << "->";
+		if (error != 2)
+		{
+			check_value(line, error);
+			//std::cerr << error;
+		}
 		//ecrire le resultat ici
 		i = 0;
 		j = 0;
@@ -217,6 +232,6 @@ void BitcoinExchange::calcul (std::string filename)
 	//verifier que la date est apres la creation du bitcoin
 	//verifier que la date existe
 	//verifier que la valeur est compris entre 0 et 1000
-	//2 valeur separer par 
+	//2 valeur separer par
 	parse_input_file(filename);
 }
