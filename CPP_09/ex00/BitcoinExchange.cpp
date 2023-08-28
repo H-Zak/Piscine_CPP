@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zakariyahamdouchi <zakariyahamdouchi@st    +#+  +:+       +#+        */
+/*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 22:50:12 by zheylkoss         #+#    #+#             */
-/*   Updated: 2023/08/28 01:04:17 by zakariyaham      ###   ########.fr       */
+/*   Updated: 2023/08/28 17:03:49 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ void parsing_value_input(std::string line, size_t *i, size_t *j, int &error)
 		{
 			std::cerr << "Error 1: value input file incorrect" << std::endl;
 			error = 2;
+			return ;
 		}
 		if ((*j) == 0 && std::isdigit(line[(*i)]))
 		{
@@ -101,10 +102,7 @@ void BitcoinExchange::parsefile(std::string filename)
 	std::string parse;
 	size_t  j = 0;
 	size_t i = 0;
-	//int nb_line = 2;
 	int error = 0;
-	//int which_line; a increment dans for pour savoir quelle ligne a un probleme
-	//jour et mois ne peuvent pas etre egale a 0;
 
 	if(!file.is_open())
 		throw(std::range_error("problem with input"));
@@ -125,48 +123,48 @@ void BitcoinExchange::parsefile(std::string filename)
 		parsing_value(line, &i, &j);
 		i = 0;
 		j = 0;
-		this->data_base.insert(std::make_pair(line.substr(0, 9), line.substr(11)));
-		//nb_line++;
-		//std::cerr << error << std::endl;
+		this->data_base[line.substr(0, 10)] =  line.substr(11);
 		error = 0;
-		//std::cout << nb_line <<std::endl;
     }
-	// if (!data_base.empty())// a quoi ca sert ?
-	// {
-	// 	iterator it = data_base.begin();
-	// 	std::cout << it->first << "->" << it->second << std::endl;
-	// }
 	file.close();
 }
 
 void	BitcoinExchange::check_value(std::string line, int &error)
 {
-	// std::cout << "valeur rate :" << line.substr(13) << std::endl;
 	double number = atof(line.substr(13).c_str());
 	if (number < 0 || number > 1000)
 	{
-		std::cerr << "Wrong value\n";
+		std::cerr << "Error: too large a number.\n";
 		error = 2;
 		return ;
 	}
-	if(error != 2 && this->data_base.find(line.substr(0, 9)) != this->data_base.end())
+	if(error != 2 && (this->data_base.find(line.substr(0, 10)) != this->data_base.end()))
 	{
-		number =  number * atof(data_base[line.substr(0, 9)].c_str());
-		std::cout << number << std::endl;
+		number =  number * atof(data_base[line.substr(0, 10)].c_str());
+		std::cout << line.substr(0, 10) << " => " << line.substr(13) << " = " << number << std::endl;
 		error = 2;
 	}
 	else
 	{
-		std::map<std::string, std::string>::iterator it = data_base.lower_bound(line.substr(10).c_str());
+		std::map<std::string, std::string>::iterator it = this->data_base.lower_bound(line.substr(0, 10));
+		if (it == data_base.begin())
+		{
+			std::cerr << "date avant la premiere" << std::endl;
+			error = 2;
+			return ;
+		}
 		if (it != data_base.end())
 		{
-			number =  number * atof(data_base[line.substr(0, 9)].c_str());
-			std::cout << number << std::endl;
+			--it;
+			number =  number * atof(it->second.c_str());
+			
+			std::cout << line.substr(0 , 10) << " => " << line.substr(13) << " = " << number << std::endl;
 		}
 		else
 		{
-			std::cerr << "No date found" << std::endl;
-			error = 2;
+			--it;
+			number =  number * atof(it->second.c_str());
+			std::cout << line.substr(0 , 10) << " => " << line.substr(13) << " = " << number << std::endl;
 		}
 	}
 }
@@ -176,7 +174,6 @@ void BitcoinExchange::parse_input_file(std::string filename)//attention a l'ecri
 	 std::ifstream file(filename.c_str());
 	 size_t i = 0;
 	 size_t j = 0;
-	//  size_t error = 1;
 	 int error = 1;
 
     if (!file.is_open()) {
@@ -188,9 +185,8 @@ void BitcoinExchange::parse_input_file(std::string filename)//attention a l'ecri
         if (line.compare("date | value") != 0) {
             throw(std::runtime_error("Error: incorrect first line of test" + line));
         }
-    } else {
+    } else 
         throw(std::runtime_error("Error: file is empty\n"));
-    }
 	while(std::getline(file, line))
 	{
 		if (line.length() < 12)
@@ -209,29 +205,185 @@ void BitcoinExchange::parse_input_file(std::string filename)//attention a l'ecri
 			i = i + 3;
 		if (error != 2)
 			parsing_value_input(line, &i, &j, error);
-		if (error == 1)
-			std::cout << line.substr(0, 9) << "->";
 		if (error != 2)
-		{
 			check_value(line, error);
-			//std::cerr << error;
-		}
-		//ecrire le resultat ici
 		i = 0;
 		j = 0;
-		//fonction qui va faire le calcul si error == 0;
 		error = 1;
-		// nb_line++;
-		// std::cout << nb_line << line <<std::endl;
     }
 	file.close();
 }
 
-void BitcoinExchange::calcul (std::string filename)
+
+void BitcoinExchange::parsing_date(std::string line , size_t *i, int &error)
 {
-	//verifier que la date est apres la creation du bitcoin
-	//verifier que la date existe
-	//verifier que la valeur est compris entre 0 et 1000
-	//2 valeur separer par
-	parse_input_file(filename);
+	for (; (*i) < 10; (*i)++)
+	{
+		if((*i) < 4 && !std::isdigit(line[(*i)]))
+		{
+			if (error != 1 )
+				throw(std::range_error("Error : date incorrect"));
+			else
+				std::cerr << "Error : date incorrect" << std::endl;
+			error = 2;
+		}
+		if (error != 2 && (*i) == 4 && line[(*i)] != '-')
+		{
+			if (error != 1)
+				throw(std::range_error("Error : date incorrect"));
+			else
+				std::cerr << "Error : date incorrect" << std::endl;
+			error = 2;
+		}
+		if(error != 2 && (*i) == 4)
+			year(line, error);
+		if (error != 2 && ((*i) == 5 || (*i) == 6) && !std::isdigit(line[(*i)]))
+		{
+			if (error != 1)
+				throw(std::range_error("Error : database not complete"));
+			else
+				std::cerr << "Error : database not complete" << std::endl;
+			error = 2;
+		}
+		if (error != 2 &&  (*i) == 7 && line[(*i)] != '-')
+		{
+			if (error != 1)
+				throw(std::range_error("Error : date incorrect"));
+			else
+				std::cerr << "Error : date incorrect" << std::endl;
+			error = 2;
+		}
+		if(error != 2 &&  (*i) == 7)
+			month(line, error);
+		if(error != 2 &&  ((*i) == 8 || (*i) == 9) && !std::isdigit(line[(*i)]))
+		{
+			if (error != 1)
+				throw(std::range_error("Error : date incorrect"));
+			else
+				std::cerr << "Error : date incorrect" << std::endl;
+			error = 2;
+		}
+		if (error != 2 &&  (*i) == 9)
+			day(line, error);
+	}
+}
+
+void BitcoinExchange::parsing_value(std::string line, size_t *i, size_t *j)
+{
+
+	for (; (*i) < line.length(); (*i)++)
+	{
+		if ((*j) == 0 && !std::isdigit(line[(*i)]))
+			throw(std::range_error("Error 1: value databse incorrect"));
+		if ((*j) == 0 && std::isdigit(line[(*i)]))
+		{
+			(*j)++;
+			(*i)++;
+		}
+
+		if ((*i) < line.length() && line[(*i)] == '.' && (*j) != 2)
+		{
+			(*j) = 2;
+			(*i)++;
+			if ((*i) >= line.length())
+				throw(std::range_error("Error 2 : value database incorrect"));
+		}
+		if ((*i) < line.length() && line[(*i)] == '.' && (*j) == 2)
+		{
+			throw(std::range_error("Error 3: value database incorrect" + line));
+		}
+		if((*i) < line.length() && !std::isdigit(line[(*i)]))
+			throw(std::range_error("Error 4 : database incorrect"));
+	}
+}
+
+void BitcoinExchange::year(std::string line, int &i)
+{
+	int year;
+
+	year = atoi(line.substr(0,4).c_str());
+	if (year < 2009)
+	{
+		if (i == 0)
+			throw(std::range_error("Error database: wrong year 1"));
+		else
+			std::cerr << "Error database: wrong year" << std::endl;
+		i = 2;
+	}
+}
+
+void BitcoinExchange::month(std::string line, int &i)
+{
+	int month;
+
+	month = atoi(line.substr(5,7).c_str());
+	if (month > 0 && month < 13)
+		return ;
+	else
+	{
+		if (i == 0)
+			throw(std::range_error("Error database: wrong month"));
+		else
+			std::cerr << "Error database: wrong month" << std::endl;
+		i = 2;
+	}
+}
+
+bool BitcoinExchange::IsLeap (int year) {
+
+ bool isLeap;
+    if (year % 4 == 0) {
+        if (year % 100 == 0) {
+            if (year % 400 == 0)
+              isLeap = true;
+            else
+               isLeap = false;
+        }
+        else
+           isLeap = true;
+    }
+    else
+    	isLeap= false;
+    return isLeap;
+}
+
+void BitcoinExchange::day(std::string line, int &i)
+{
+	int day;
+	int year = atoi(line.substr(0,4).c_str());
+	int month;
+	int daysInMonth[13];
+	if (IsLeap(year))
+	{
+		// Initialize for leap year
+		int leapYearDays[] = {0, 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+		std::copy(leapYearDays, leapYearDays + 13, daysInMonth);
+	}
+	else
+	{
+		// Initialize for non-leap year
+		int nonLeapYearDays[] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+		std::copy(nonLeapYearDays, nonLeapYearDays + 13, daysInMonth);
+	}
+
+	month = atoi(line.substr(5,7).c_str());
+	day = atoi(line.substr(8,10).c_str());
+
+	if (month >= 1 && month <= 12)
+    {
+        // Check if the day is within the valid range for the given month
+        if (day >= 1 && day <= daysInMonth[month])
+        {
+            return;
+        }
+        else
+        {
+			if (i == 0)
+            	throw(std::range_error("Error database: wrong day"));
+			else
+				std::cerr << "Error database: wrong day";
+			i = 2;
+        }
+    }
+	return ;
 }

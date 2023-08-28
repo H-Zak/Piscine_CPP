@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zakariyahamdouchi <zakariyahamdouchi@st    +#+  +:+       +#+        */
+/*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 21:09:05 by zheylkoss         #+#    #+#             */
-/*   Updated: 2023/08/28 00:25:40 by zakariyaham      ###   ########.fr       */
+/*   Updated: 2023/08/28 16:53:56 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 #include <string>
 #include <stdexcept>
 #include <stdlib.h>
+#include <iomanip>
 
 
 
@@ -35,17 +36,15 @@ public :
     ~BitcoinExchange();
     std::map<std::string, std::string> get_data_base() const;
 	typedef std::map<std::string, std::string>::iterator iterator;
-    void calcul (std::string filename);
     void parsefile(std::string filename);
     void check_value(std::string line, int &error);
 	void parsing_date(std::string line , size_t *i, int &error);
 	void parsing_value(std::string line, size_t *i, size_t *j);
     void parse_input_file(std::string filename);
-
+	void year(std::string line, int &i);
+	void month(std::string line, int &i);
+	bool IsLeap (int year);
+	void day(std::string line, int &i);
 };
-void year(std::string line, int &i);
-void month(std::string line, int &i);
-bool IsLeap (int year);
-void day(std::string line, int &i);
 
 #endif

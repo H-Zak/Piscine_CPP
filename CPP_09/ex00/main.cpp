@@ -6,7 +6,7 @@
 /*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 18:46:06 by zhamdouc          #+#    #+#             */
-/*   Updated: 2023/08/22 13:09:55 by zhamdouc         ###   ########.fr       */
+/*   Updated: 2023/08/28 16:54:30 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,13 +50,11 @@ int main(int argc, char **argv)
     {
         BitcoinExchange btc(filename);
 
-        btc.calcul(filename);
+        btc.parse_input_file(filename);
         
     }
     catch(const std::exception& e)
     {
         std::cerr << e.what() << '\n';
     }
-    
-	
 }
