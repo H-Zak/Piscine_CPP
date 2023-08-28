@@ -6,12 +6,12 @@
 #    By: zakariyahamdouchi <zakariyahamdouchi@st    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/15 16:14:02 by zakariyaham       #+#    #+#              #
-#    Updated: 2023/08/15 16:14:03 by zakariyaham      ###   ########.fr        #
+#    Updated: 2023/08/29 00:11:57 by zakariyaham      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC				:=	c++
-CPPFLAGS		:=	-Wall -Werror -Wextra -std=c++98 -MMD -MP
+CPPFLAGS		:=	-Wall -Werror -Wextra -std=c++98 -MMD -MP -g
 
 # Directories
 SRC_DIR			:=	.
@@ -20,7 +20,7 @@ OBJ_DIR			:=	obj
 # Source files
 SRCS			:=	$(wildcard $(SRC_DIR)/*.cpp)
 OBJS			:=	$(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SRCS))
-TARGET			:=	bureaucrat
+TARGET			:=	RNP
 
 # Progress bar function
 define progress_bar
