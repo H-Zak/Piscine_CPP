@@ -1,0 +1,84 @@
+`std::vector` et `std::deque` sont deux des containers séquentiels de la bibliothèque standard de C++. Ils ont beaucoup de méthodes similaires car ils offrent des fonctionnalités de base similaires pour stocker des éléments. Cependant, en raison de leurs différences internes, certaines opérations peuvent avoir des performances différentes entre les deux.
+
+### std::vector
+
+1. **Construction**:
+    ```cpp
+    std::vector<int> v;            // constructeur par défaut
+    std::vector<int> v(5);         // un vector avec 5 éléments (int) initialisés à zéro
+    std::vector<int> v(5, 10);     // un vector avec 5 éléments, chacun valant 10
+    ```
+
+2. **Accès aux éléments**:
+    ```cpp
+    v[2];          // accès direct (ne vérifie pas les limites)
+    v.at(2);       // accès avec vérification des limites
+    v.front();     // premier élément
+    v.back();      // dernier élément
+    ```
+
+3. **Taille et capacité**:
+    ```cpp
+    v.size();      // nombre d'éléments actuels
+    v.capacity();  // capacité actuelle
+    v.empty();     // vérifie si le vector est vide
+    v.reserve(10); // réserve de la mémoire pour au moins 10 éléments
+    v.shrink_to_fit(); // réduit la capacité à la taille actuelle
+    ```
+
+4. **Modification**:
+    ```cpp
+    v.push_back(10);   // ajoute un élément à la fin
+    v.pop_back();      // supprime le dernier élément
+    v.insert(v.begin() + 2, 10);  // insère 10 à la 3ème position
+    v.erase(v.begin() + 2);       // supprime l'élément à la 3ème position
+    v.clear();         // supprime tous les éléments
+    ```
+
+5. **Recherche et comparaison**:
+    ```cpp
+    std::find(v.begin(), v.end(), 10); // trouve l'élément 10
+    std::sort(v.begin(), v.end());     // trie le vector
+    ```
+
+### std::deque
+
+1. **Construction**:
+    ```cpp
+    std::deque<int> d;           // constructeur par défaut
+    std::deque<int> d(5);        // un deque avec 5 éléments (int) initialisés à zéro
+    std::deque<int> d(5, 10);    // un deque avec 5 éléments, chacun valant 10
+    ```
+
+2. **Accès aux éléments**:
+    ```cpp
+    d[2];          // accès direct (ne vérifie pas les limites)
+    d.at(2);       // accès avec vérification des limites
+    d.front();     // premier élément
+    d.back();      // dernier élément
+    ```
+
+3. **Taille**:
+    ```cpp
+    d.size();      // nombre d'éléments actuels
+    d.empty();     // vérifie si le deque est vide
+    ```
+
+4. **Modification**:
+    ```cpp
+    d.push_back(10);       // ajoute un élément à la fin
+    d.push_front(10);      // ajoute un élément au début
+    d.pop_back();          // supprime le dernier élément
+    d.pop_front();         // supprime le premier élément
+    d.insert(d.begin() + 2, 10); // insère 10 à la 3ème position
+    d.erase(d.begin() + 2);      // supprime l'élément à la 3ème position
+    d.clear();            // supprime tous les éléments
+    ```
+
+5. **Recherche et comparaison**:
+    ```cpp
+    std::find(d.begin(), d.end(), 10); // trouve l'élément 10
+    std::sort(d.begin(), d.end());     // trie le deque
+    ```
+
+Il est à noter que pour ces deux containers, bien qu'ils aient des fonctions similaires, il existe des différences de performance pour certaines opérations. Par exemple, `std::deque` permet des insertions et suppressions efficaces à la fois au début et à la fin, tandis que `std::vector` est optimisé pour des insertions et suppressions rapides à la fin seulement.
