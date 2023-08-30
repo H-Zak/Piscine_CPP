@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: zakariyahamdouchi <zakariyahamdouchi@st    +#+  +:+       +#+         #
+#    By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/15 16:14:02 by zakariyaham       #+#    #+#              #
-#    Updated: 2023/08/29 00:11:57 by zakariyaham      ###   ########.fr        #
+#    Updated: 2023/08/30 17:26:09 by zhamdouc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 

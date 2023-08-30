@@ -6,14 +6,15 @@
 /*   By: zhamdouc <zhamdouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 17:06:05 by zhamdouc          #+#    #+#             */
-/*   Updated: 2023/08/29 21:19:18 by zhamdouc         ###   ########.fr       */
+/*   Updated: 2023/08/30 17:15:46 by zhamdouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "PmergeMe.hpp"
+#include "Pmergeme.tpp"
 
-bool Check_unsigned_int(char *str, std::vector<unsigned int> &_vec, std::deque<unsigned int> _deque)
+bool Check_unsigned_int(char *str, std::vector<unsigned int> &_vec, std::deque<unsigned int> &_deque)
 {
 	char *end;
 	unsigned long value = strtoul(str, &end, 10);
@@ -32,7 +33,7 @@ int main (int argc, char **argv)
 	std::vector<unsigned int> _vec;
 	std::deque<unsigned int> _deque;
 	
-	if(argc != 2)
+	if(argc < 3)
 	{
 		std::cerr << "Error argument" << std::endl;
 		return (1);
@@ -43,8 +44,9 @@ int main (int argc, char **argv)
 		{
 			if (!Check_unsigned_int(argv[i], _vec, _deque))
 				throw(std::invalid_argument("invalid input"));
-			
+	
 		}
+		Pmergeme do_it(_vec, _deque);
 	}
 	catch(const std::exception& e)
 	{
